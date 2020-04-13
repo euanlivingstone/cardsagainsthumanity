@@ -1,0 +1,153 @@
+<p id="notice"><%= notice %></p>
+
+  <strong>Round:</strong>
+  <%= @round.round_number %>
+  <div class="gameTable">
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">
+          <%= Game.where(id: @round.game_id).pluck(:name).first %>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          Player
+        </th>
+        <th>
+          score
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <%= User.where(id: @round.player_1).pluck(:email).first %>
+
+        </td>
+        <td>
+          <%= GameUser.where(id: @round.player_1).pluck(:points).first %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= User.where(id: @round.player_2).pluck(:email).first %>
+        </td>
+        <td>
+          <%= GameUser.where(id: @round.player_2).pluck(:points).first %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= User.where(id: @round.player_3).pluck(:email).first %>
+        </td>
+        <td>
+          <%= GameUser.where(id: @round.player_3).pluck(:points).first %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= User.where(id: @round.player_4).pluck(:email).first %>
+        </td>
+        <td>
+          <%= GameUser.where(id: @round.player_5).pluck(:points).first %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= User.where(id: @round.player_6).pluck(:email).first %>
+        </td>
+        <td>
+          <%= GameUser.where(id: @round.player_6).pluck(:points).first %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= User.where(id: @round.player_7).pluck(:email).first %>
+        </td>
+        <td>
+          <%= GameUser.where(id: @round.player_7).pluck(:points).first %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= User.where(id: @round.player_8).pluck(:email).first %>
+        </td>
+        <td>
+          <%= GameUser.where(id: @round.player_8).pluck(:points).first %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= User.where(id: @round.player_9).pluck(:email).first %>
+        </td>
+        <td>
+          <%= GameUser.where(id: @round.player_9).pluck(:points).first %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= User.where(id: @round.player_10).pluck(:email).first %>
+        </td>
+        <td>
+          <%= GameUser.where(id: @round.player_10).pluck(:points).first %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="container">
+    <div class="WhiteCard">
+      <div class="BlackCard">
+          <br>
+          <%= BlackCard.where(id: @round.b_card).pluck(:text).first %>
+
+          <div>
+            <%= image_tag'logo_b.PNG', :style => "position: absolute; bottom: 5px; width: 150px;"%>
+          </div>
+      </div>
+    </div>
+  </div>
+<hr>
+
+
+
+
+<% if !@round.win_card_1 = 0 %>
+  <div class="WhiteCard">
+  <%= WhiteCard.where(id: @round.win_card_1).pluck(:text).first %>
+  </div>
+  <div>
+    The Winner is: <% User.where(id: @round.win_player).pluck(:email).first %>
+  </div>
+<% else %>
+
+  <div class="container">
+    <%= render 'form', round: @round %>
+  </div>
+<% end %>
+
+<hr>
+
+<%= link_to 'Back', games_path %>
+<hr>
+<div class="container">
+	Winner of the last round in the game was: <% User.where(id: Round.where(game_id: @round.game_id).pluck(:win_player).second_to_last).pluck(:email).first %>
+</div>
+<div class="container">
+  <div class="WhiteCard">
+    <div class="BlackCard">
+        <br>
+        <%= BlackCard.where(id: Round.where(game_id: @round.game_id).pluck(:b_card).second_to_last).pluck(:text).first %>
+
+        <div>
+          <%= image_tag'logo_b.PNG', :style => "position: absolute; bottom: 5px; width: 150px;"%>
+        </div>
+    </div>
+  </div>
+
+<div class="WhiteCard">
+  <%= WhiteCard.where(id: Round.where(game_id: @round.game_id).pluck(:win_card_1).second_to_last).pluck(:text).first %>
+
+</div>
+</div>

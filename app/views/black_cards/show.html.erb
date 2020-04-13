@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @black_card.text %>
+</p>
+
+<p>
+  <strong>Pick amount:</strong>
+  <%= @black_card.pick_amount %>
+</p>
+
+<%= link_to 'Edit', edit_black_card_path(@black_card) %> |
+<%= link_to 'Back', black_cards_path %>

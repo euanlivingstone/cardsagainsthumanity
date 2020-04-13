@@ -1,0 +1,82 @@
+<%= form_with(model: game_user, local: true) do |form| %>
+  <% if game_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(game_user.errors.count, "error") %> prohibited this game_user from being saved:</h2>
+
+      <ul>
+        <% game_user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :game_id %>
+    <%= form.number_field :game_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :points %>
+    <%= form.number_field :points %>
+  </div>
+
+  <div class="field">
+    <%= form.label :w_card_1 %>
+    <%= form.number_field :w_card_1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :w_card_2 %>
+    <%= form.number_field :w_card_2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :w_card_3 %>
+    <%= form.number_field :w_card_3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :w_card_4 %>
+    <%= form.number_field :w_card_4 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :w_card_5 %>
+    <%= form.number_field :w_card_5 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :w_card_6 %>
+    <%= form.number_field :w_card_6 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :w_card_7 %>
+    <%= form.number_field :w_card_7 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :w_card_8 %>
+    <%= form.number_field :w_card_8 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :w_card_9 %>
+    <%= form.number_field :w_card_9 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :w_card_10 %>
+    <%= form.number_field :w_card_10 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

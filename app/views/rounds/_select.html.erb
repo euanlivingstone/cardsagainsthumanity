@@ -1,0 +1,73 @@
+
+
+<% case params[:player_number].to_i %>
+<% when 1 %>
+player updated
+ <% Round.where(id: params[:round], game_id: params[:game]).update(:player_1_card_1 => params[:card_id]) %>
+<% when 2 %>
+player updated
+ <% Round.where(id: params[:round], game_id: params[:game]).update(:player_2_card_1 => params[:card_id]) %>
+<% when 3 %>
+player updated
+ <% Round.where(id: params[:round], game_id: params[:game]).update(:player_3_card_1 => params[:card_id]) %>
+<% when 4 %>
+player updated
+ <% Round.where(id: params[:round], game_id: params[:game]).update(:player_4_card_1 => params[:card_id]) %>
+<% when 5 %>
+player updated
+ <% Round.where(id: params[:round], game_id: params[:game]).update(:player_5_card_1 => params[:card_id]) %>
+<% when 6 %>
+player updated
+ <% Round.where(id: params[:round], game_id: params[:game]).update(:player_6_card_1 => params[:card_id]) %>
+<% when 7 %>
+player updated
+ <% Round.where(id: params[:round], game_id: params[:game]).update(:player_7_card_1 => params[:card_id]) %>
+<% when 8 %>
+player updated
+ <% Round.where(id: params[:round], game_id: params[:game]).update(:player_8_card_1 => params[:card_id]) %>
+<% when 9 %>
+player updated
+ <% Round.where(id: params[:round], game_id: params[:game]).update(:player_9_card_1 => params[:card_id]) %>
+<% when 10 %>
+player updated
+ <% Round.where(id: params[:round], game_id: params[:game]).update(:player_10_card_1 => params[:card_id]) %>
+<% end %>
+<br>
+<% case params[:card].to_i %>
+<% when 1 %>
+card updated
+  <% GameUser.where(user_id: params[:player], game_id: params[:game]).update(:w_card_1 => WhiteCard.order(Arel.sql('RANDOM()')).pluck(:id).last) %>
+<% when 2 %>
+card updated
+<% GameUser.where(user_id: params[:player], game_id: params[:game]).update(:w_card_2 => WhiteCard.order(Arel.sql('RANDOM()')).pluck(:id).last) %>
+<% when 3 %>
+card updated
+<% GameUser.where(user_id: params[:player], game_id: params[:game]).update(:w_card_3 => WhiteCard.order(Arel.sql('RANDOM()')).pluck(:id).last) %>
+<% when 4 %>
+card updated
+<% GameUser.where(user_id: params[:player], game_id: params[:game]).update(:w_card_4 => WhiteCard.order(Arel.sql('RANDOM()')).pluck(:id).last) %>
+<% when 5 %>
+card updated
+<% GameUser.where(user_id: params[:player], game_id: params[:game]).update(:w_card_5 => WhiteCard.order(Arel.sql('RANDOM()')).pluck(:id).last) %>
+<% when 6 %>
+card updated
+<% GameUser.where(user_id: params[:player], game_id: params[:game]).update(:w_card_6 => WhiteCard.order(Arel.sql('RANDOM()')).pluck(:id).last) %>
+<% when 7 %>
+card updated
+<% GameUser.where(user_id: params[:player], game_id: params[:game]).update(:w_card_7 => WhiteCard.order(Arel.sql('RANDOM()')).pluck(:id).last) %>
+<% when 8 %>
+card updated
+<% GameUser.where(user_id: params[:player], game_id: params[:game]).update(:w_card_8 => WhiteCard.order(Arel.sql('RANDOM()')).pluck(:id).last) %>
+<% when 9 %>
+card updated
+<% GameUser.where(user_id: params[:player], game_id: params[:game]).update(:w_card_9 => WhiteCard.order(Arel.sql('RANDOM()')).pluck(:id).last) %>
+<% when 10 %>
+card updated
+<% GameUser.where(user_id: params[:player], game_id: params[:game]).update(:w_card_10 => WhiteCard.order(Arel.sql('RANDOM()')).pluck(:id).last) %>
+<% end %>
+
+<br>
+
+
+
+<%= link_to "back", "rounds/"+params[:round].to_s %>

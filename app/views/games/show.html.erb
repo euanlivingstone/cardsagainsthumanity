@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <% @whitecards = WhiteCard.order(Arel.sql('RANDOM()')).pluck(:id) %>
+  <% Round.create(player_1: current_user.id, round_number: 1, player_count: 1, dealer_id: current_user.id, game_id: @game.id, b_card: BlackCard.where(pick_amount: 1).order(Arel.sql('RANDOM()')).pluck(:id).first) %>
+  <% GameUser.create(user_id: current_user.id, points: 0, game_id: @game.id, w_card_1: @whitecards[1], w_card_2: @whitecards[99], w_card_3: @whitecards[999], w_card_4: @whitecards[36], w_card_5: @whitecards[754], w_card_6: @whitecards[234], w_card_7: @whitecards[385], w_card_8: @whitecards[873], w_card_9: @whitecards[295], w_card_10: @whitecards[3]) %>
+  <strong>Name:</strong>
+  <%= @game.name %>
+</p>
+<p>
+  <strong>Game id:</strong><%= @game.id %>
+</p>
+<p>
+  <strong>Game name:</strong><%= @game.name %>
+</p>
+<p>
+  <strong>Round id:</strong><%= @game.round_id %>
+</p>
+<p>
+  <strong>Number of players:</strong><%= @game.number_of_players %>
+</p>
+
+
+<%= link_to 'Back', games_path %>

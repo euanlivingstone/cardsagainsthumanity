@@ -1,0 +1,272 @@
+<p id="notice"><%= notice %></p>
+
+<table width="100%">
+  <% i = 0 %>
+  <tr>
+<% @games.each do |game| %>
+    <% if i < 3 then %>
+      <td width = "30%" >
+        <table>
+              <thead>
+                <tr>
+                  <th colspan="2" class="gametitle" ><h1><%= link_to(game.name, "rounds/" + game.round_id.to_s) %></h1></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Round:</td>
+                  <td><%= game.round_id  %></td>
+                </tr>
+                  <tr>
+                    <td>player_1</td>
+                    <td>
+                      <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_1).first).pluck(:email).first %>
+                      <% if @user.blank? %>
+                        <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => "1") %>
+                      <% else %>
+                        <%= @user %>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>player_2</td>
+                    <td>
+                      <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_2).first).pluck(:email).first %>
+                      <% if @user.blank? %>
+                        <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => "2") %>
+                      <% else %>
+                        <%= @user %>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>player_3</td>
+                    <td>
+                      <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_3).first).pluck(:email).first %>
+                      <% if @user.blank? %>
+                        <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => "3") %>
+                      <% else %>
+                        <%= @user %>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>player_4</td>
+                    <td>
+                      <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_4).first).pluck(:email).first %>
+                      <% if @user.blank? %>
+                        <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => "4") %>
+                      <% else %>
+                        <%= @user %>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>player_5</td>
+                    <td>
+                      <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_5).first).pluck(:email).first %>
+                      <% if @user.blank? %>
+                        <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => "5") %>
+                      <% else %>
+                        <%= @user %>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>player_6</td>
+                    <td>
+                      <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_6).first).pluck(:email).first %>
+                      <% if @user.blank? %>
+                        <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => "6") %>
+                      <% else %>
+                        <%= @user %>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>player_7</td>
+                    <td>
+                      <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_7).first).pluck(:email).first %>
+                      <% if @user.blank? %>
+                        <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => "7") %>
+                      <% else %>
+                        <%= @user %>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>player_8</td>
+                    <td>
+                      <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_8).first).pluck(:email).first %>
+                      <% if @user.blank? %>
+                        <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => "8") %>
+                      <% else %>
+                        <%= @user %>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>player_9</td>
+                    <td>
+                      <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_9).first).pluck(:email).first %>
+                      <% if @user.blank? %>
+                        <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => "9") %>
+                      <% else %>
+                        <%= @user %>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>player_10</td>
+                    <td>
+                      <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_10).first).pluck(:email).first %>
+                      <% if @user.blank? %>
+                        <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => "10") %>
+                      <% else %>
+                        <%= @user %>
+                      <% end %>
+                    </td>
+                  </tr>
+              </tbody>
+        </table>
+      </td>
+      <% i = i + 1 %>
+    <% else %>
+    </tr>
+    <tr>
+      <td width = "30%" >
+        <table>
+              <thead>
+                <tr>
+                  <th colspan="2" class="gametitle" ><h1><%= link_to(game.name, "rounds/" + game.round_id.to_s) %></h1></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Round:</td>
+                  <td><%= game.round_id  %></td>
+                </tr>
+                  <tr>
+                    <td>player_1</td>
+                    <td>
+                      <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_1).first).pluck(:email).first %>
+                      <% if @user.blank? %>
+                        <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => "1") %>
+                      <% else %>
+                        <%= @user %>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>player_2</td>
+                    <td>
+                      <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_2).first).pluck(:email).first %>
+                      <% if @user.blank? %>
+                        <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => "2") %>
+                      <% else %>
+                        <%= @user %>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>player_3</td>
+                    <td>
+                      <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_3).first).pluck(:email).first %>
+                      <% if @user.blank? %>
+                        <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => "3") %>
+                      <% else %>
+                        <%= @user %>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>player_4</td>
+                    <td>
+                      <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_4).first).pluck(:email).first %>
+                      <% if @user.blank? %>
+                        <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => "4") %>
+                      <% else %>
+                        <%= @user %>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>player_5</td>
+                    <td>
+                      <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_5).first).pluck(:email).first %>
+                      <% if @user.blank? %>
+                        <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => "5") %>
+                      <% else %>
+                        <%= @user %>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>player_6</td>
+                    <td>
+                      <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_6).first).pluck(:email).first %>
+                      <% if @user.blank? %>
+                        <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => "6") %>
+                      <% else %>
+                        <%= @user %>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>player_7</td>
+                    <td>
+                      <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_7).first).pluck(:email).first %>
+                      <% if @user.blank? %>
+                        <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => "7") %>
+                      <% else %>
+                        <%= @user %>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>player_8</td>
+                    <td>
+                      <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_8).first).pluck(:email).first %>
+                      <% if @user.blank? %>
+                        <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => "8") %>
+                      <% else %>
+                        <%= @user %>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>player_9</td>
+                    <td>
+                      <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_9).first).pluck(:email).first %>
+                      <% if @user.blank? %>
+                        <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => "9") %>
+                      <% else %>
+                        <%= @user %>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>player_10</td>
+                    <td>
+                      <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_10).first).pluck(:email).first %>
+                      <% if @user.blank? %>
+                        <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => "10") %>
+                      <% else %>
+                        <%= @user %>
+                      <% end %>
+                    </td>
+                  </tr>
+              </tbody>
+        </table>
+      </td>
+      <% i = 1 %>
+    <% end %>
+<% end %>
+</tr>
+</table>
+<br>
+
+
+
+
+<%= link_to 'New Game', new_game_path %>

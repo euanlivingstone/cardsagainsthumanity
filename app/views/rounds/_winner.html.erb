@@ -1,0 +1,113 @@
+
+<br>
+<% params[:player] %>
+<% params[:round] %>
+<% params[:game] %>
+
+  <% Round.where(id: params[:round], game_id: params[:game]).update(win_player: params[:player], win_card_1: params[:card]) %>
+  <% i = GameUser.where(game_id: params[:game], user_id: params[:player]).pluck(:points).first %>
+  <% if i.blank? then %>
+   <% i = 1 %>
+  <% else %>
+    <% i = i + 1 %>
+  <% end %>
+  <% GameUser.where(game_id: params[:game], user_id: params[:player]).update(points: i) %>
+
+
+  <% if Round.pluck(:id).last.blank? then %>
+    <% x = 1 %>
+  <% else %>
+    <% x = Round.pluck(:id).last + 1 %>
+  <% end %>
+<% round = Round.where(id: params[:round], game_id: params[:game]) %>
+
+<% q = 0 %>
+
+<% dealer = Round.where(id: params[:round], game_id: params[:game]).pluck(:dealer_id).last %>
+<% player_1 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_1).last %>
+<% player_2 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_2).last %>
+<% player_3 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_3).last %>
+<% player_4 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_4).last %>
+<% player_5 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_5).last %>
+<% player_6 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_6).last %>
+<% player_7 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_7).last %>
+<% player_8 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_8).last %>
+<% player_9 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_9).last %>
+<% player_10 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_10).last %>
+<% player_count = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_count).last %>
+<% round_number = Round.where(id: params[:round], game_id: params[:game]).pluck(:round_number).last %>
+
+<% case dealer%>
+<% when player_1 %>
+  <% q = q + 1 %>
+  <% if q < player_count then %>
+  <% z = player_2 %>
+  <% end %>
+<% when player_2 %>
+  <% q = q + 1 %>
+  <% if q < player_count then %>
+  <% z = player_3 %>
+  <% else %>
+<% z = player_1 %>
+  <% end %>
+<% when player_3 %>
+  <% q = q + 1 %>
+  <% if q < player_count then %>
+  <% z = player_4 %>
+  <% else %>
+<% z = player_1 %>
+  <% end %>
+<% when player_4 %>
+  <% q = q + 1 %>
+  <% if q < player_count then %>
+  <% z = player_5 %>
+  <% else %>
+<% z = player_1 %>
+  <% end %>
+<% when player_5 %>
+  <% q = q + 1 %>
+  <% if q < player_count then %>
+  <% z = player_6 %>
+  <% else %>
+<% z = player_1 %>
+  <% end %>
+<% when player_6 %>
+  <% q = q + 1 %>
+  <% if q < player_count then %>
+  <% z = player_7 %>
+  <% else %>
+<% z = player_1 %>
+  <% end %>
+<% when player_7 %>
+  <% q = q + 1 %>
+  <% if q < player_count then %>
+  <% z = player_8 %>
+  <% else %>
+<% z = player_1 %>
+  <% end %>
+<% when player_8 %>
+  <% q = q + 1 %>
+  <% if q < player_count then %>
+  <% z = player_9 %>
+  <% else %>
+<% z = player_1 %>
+  <% end %>
+<% when player_9 %>
+  <% q = q + 1 %>
+  <% if q < player_count then %>
+  <% z = player_10 %>
+  <% else %>
+ <% z = player_1 %>
+  <% end %>
+<% when player_10 %>
+  <% z = player_1 %>
+<% end %>
+
+<% w = round_number + 1 %>
+
+  <% Round.create(player_count: player_count, player_1: player_1, player_2: player_2, player_3: player_3, player_4: player_4, player_5: player_5, player_6: player_6, player_7: player_7, player_8: player_8, player_9: player_9, player_10: player_10, round_number: w, dealer_id: z, game_id: params[:game], b_card: BlackCard.where(pick_amount: 1).order(Arel.sql('RANDOM()')).pluck(:id).first) %>
+  <% Game.where(id: params[:game]).update(round_id: Round.pluck(:id).last) %>
+
+Vote registered, and new round started.
+<br>
+  <%= link_to "back", "rounds/" + params[:round].to_s%>

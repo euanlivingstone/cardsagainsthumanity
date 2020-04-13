@@ -1,0 +1,31 @@
+<div>
+
+  <% if current_user then  %>
+
+  <div class="gametitle"><h1><%= link_to "Click here for Games", games_path %></h1></div>
+  <% else %>
+  Please Sign In!!
+  <% end %>
+</div>
+
+<div class="WhiteCard">
+  <div class="container BlackCard">
+      <br>
+      <% @black_card = BlackCard.where(pick_amount: "1").order(Arel.sql('random()')).first %>
+      <%= @black_card.text %>
+
+      <div>
+        <%= image_tag'logo_b.PNG', :style => "position: absolute; bottom: 5px; width: 150px;"%>
+      </div>
+  </div>
+</div>
+
+
+<div class="container WhiteCard">
+  <br>
+  <% @white_card = WhiteCard.order(Arel.sql('random()')).first %>
+  <%= @white_card.text %>
+  <div>
+    <%= image_tag'logo_w.PNG', :style => "position: absolute; bottom: 5px; width: 150px;" %>
+  </div>
+</div>

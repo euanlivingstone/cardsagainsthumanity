@@ -1,0 +1,81 @@
+
+  <div class="WhiteCard">
+    <%= WhiteCard.where(id: GameUser.where(user_id: current_user.id, game_id: @round.game_id).pluck(:w_card_1)).pluck(:text).first %>
+  <br>
+  <%= link_to  "Select this one", select_path(:game => @round.game_id, :round => @round.id, :player => @round.player_4, :card => 1, :player_number => 4, :card_id => GameUser.where(user_id: current_user.id, game_id: @round.game_id).pluck(:w_card_1).first) %>
+    <div>
+      <%= image_tag'logo_w.PNG', :style => "position: absolute; bottom: 5px; width: 150px;"%>
+    </div>
+  </div>
+  <div class="WhiteCard">
+    <%= WhiteCard.where(id: GameUser.where(user_id: current_user.id, game_id: @round.game_id).pluck(:w_card_2)).pluck(:text).first %>
+<br>
+<%= link_to  "Select this one", select_path(:game => @round.game_id, :round => @round.id, :player => @round.player_4, :card => 2, :player_number => 4, :card_id => GameUser.where(user_id: current_user.id, game_id: @round.game_id).pluck(:w_card_2).first) %>
+    <div>
+      <%= image_tag'logo_w.PNG', :style => "position: absolute; bottom: 5px; width: 150px;"%>
+    </div>
+  </div>
+  <div class="WhiteCard">
+    <%= WhiteCard.where(id: GameUser.where(user_id: current_user.id, game_id: @round.game_id).pluck(:w_card_3)).pluck(:text).first %>
+<br>
+<%= link_to  "Select this one", select_path(:game => @round.game_id, :round => @round.id, :player => @round.player_4, :card => 3, :player_number => 4, :card_id => GameUser.where(user_id: current_user.id, game_id: @round.game_id).pluck(:w_card_3).first) %>
+    <div>
+      <%= image_tag'logo_w.PNG', :style => "position: absolute; bottom: 5px; width: 150px;"%>
+    </div>
+  </div>
+  <div class="WhiteCard">
+    <%= WhiteCard.where(id: GameUser.where(user_id: current_user.id, game_id: @round.game_id).pluck(:w_card_4)).pluck(:text).first %>
+<br>
+<%= link_to  "Select this one", select_path(:game => @round.game_id, :round => @round.id, :player => @round.player_4, :card => 4, :player_number => 4, :card_id => GameUser.where(user_id: current_user.id, game_id: @round.game_id).pluck(:w_card_4).first) %>
+    <div>
+      <%= image_tag'logo_w.PNG', :style => "position: absolute; bottom: 5px; width: 150px;"%>
+    </div>
+  </div>
+  <div class="WhiteCard">
+    <%= WhiteCard.where(id: GameUser.where(user_id: current_user.id, game_id: @round.game_id).pluck(:w_card_5)).pluck(:text).first %>
+    <br>
+    <%= link_to  "Select this one", select_path(:game => @round.game_id, :round => @round.id, :player => @round.player_4, :card => 5, :player_number => 4, :card_id => GameUser.where(user_id: current_user.id, game_id: @round.game_id).pluck(:w_card_5).first) %>
+        <div>
+      <%= image_tag'logo_w.PNG', :style => "position: absolute; bottom: 5px; width: 150px;"%>
+    </div>
+  </div>
+  <div class="WhiteCard">
+    <%= WhiteCard.where(id: GameUser.where(user_id: current_user.id, game_id: @round.game_id).pluck(:w_card_6)).pluck(:text).first %>
+    <br>
+    <%= link_to  "Select this one", select_path(:game => @round.game_id, :round => @round.id, :player => @round.player_4, :card => 6, :player_number => 4, :card_id => GameUser.where(user_id: current_user.id, game_id: @round.game_id).pluck(:w_card_6).first) %>
+        <div>
+      <%= image_tag'logo_w.PNG', :style => "position: absolute; bottom: 5px; width: 150px;"%>
+    </div>
+  </div>
+  <div class="WhiteCard">
+    <%= WhiteCard.where(id: GameUser.where(user_id: current_user.id, game_id: @round.game_id).pluck(:w_card_7)).pluck(:text).first %>
+    <br>
+    <%= link_to  "Select this one", select_path(:game => @round.game_id, :round => @round.id, :player => @round.player_4, :card => 7, :player_number => 4, :card_id => GameUser.where(user_id: current_user.id, game_id: @round.game_id).pluck(:w_card_7).first) %>
+        <div>
+      <%= image_tag'logo_w.PNG', :style => "position: absolute; bottom: 5px; width: 150px;"%>
+    </div>
+  </div>
+  <div class="WhiteCard">
+    <%= WhiteCard.where(id: GameUser.where(user_id: current_user.id, game_id: @round.game_id).pluck(:w_card_8)).pluck(:text).first %>
+    <br>
+    <%= link_to  "Select this one", select_path(:game => @round.game_id, :round => @round.id, :player => @round.player_4, :card => 8, :player_number => 4, :card_id => GameUser.where(user_id: current_user.id, game_id: @round.game_id).pluck(:w_card_8).first) %>
+        <div>
+    <%= image_tag'logo_w.PNG', :style => "position: absolute; bottom: 5px; width: 150px;"%>
+    </div>
+  </div>
+  <div class="WhiteCard">
+    <%= WhiteCard.where(id: GameUser.where(user_id: current_user.id, game_id: @round.game_id).pluck(:w_card_9)).pluck(:text).first %>
+    <br>
+    <%= link_to  "Select this one", select_path(:game => @round.game_id, :round => @round.id, :player => @round.player_4, :card => 9, :player_number => 4, :card_id => GameUser.where(user_id: current_user.id, game_id: @round.game_id).pluck(:w_card_9).first) %>
+        <div>
+      <%= image_tag'logo_w.PNG', :style => "position: absolute; bottom: 5px; width: 150px;"%>
+    </div>
+  </div>
+  <div class="WhiteCard">
+    <%= WhiteCard.where(id: GameUser.where(user_id: current_user.id, game_id: @round.game_id).pluck(:w_card_10)).pluck(:text).first %>
+    <br>
+    <%= link_to  "Select this one", select_path(:game => @round.game_id, :round => @round.id, :player => @round.player_4, :card => 10, :player_number => 4, :card_id => GameUser.where(user_id: current_user.id, game_id: @round.game_id).pluck(:w_card_10).first) %>
+        <div>
+      <%= image_tag'logo_w.PNG', :style => "position: absolute; bottom: 5px; width: 150px;"%>
+    </div>
+  </div>

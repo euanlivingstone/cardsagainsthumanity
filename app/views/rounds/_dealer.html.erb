@@ -1,0 +1,275 @@
+
+
+<% x = 0 %>
+<% if @round.player_1.blank? then %>
+  <% x = x + 1 %>
+<% else %>
+  <%= User.where(id: @round.player_1).pluck(:email).first %>
+  <br>
+      <% if @round.player_1_card_1.blank? then %>
+        <% x = x %>
+        they still have not picked a card yet
+      <% else %>
+      <div class="container">
+      <div class="WhiteCard">
+        <br>
+        <%= WhiteCard.where(id: @round.player_1_card_1).pluck(:text).first %>
+        <% x = x + 1 %>
+        <br>
+      </div>
+      <div>
+        <br>
+        <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_1, card: WhiteCard.where(id: @round.player_1_card_1).pluck(:text).first) %>
+      </div>
+      </div>
+
+      <% end %>
+      <br>
+      <hr>
+<% end %>
+
+<% if @round.player_2.blank? then %>
+  <% x = x + 1 %>
+<% else %>
+  <%= User.where(id: @round.player_2).pluck(:email).first %>
+  <br>
+
+    <% if @round.player_2_card_1.blank? then %>
+      <% x = x %>
+      they still have not picked a card yet
+    <% else %>
+    <div class="container">
+    <div class="WhiteCard">
+      <br>
+      <%= WhiteCard.where(id: @round.player_2_card_1).pluck(:text).first %>
+      <% x = x + 1 %>
+      <br>
+    </div>
+    <div>
+      <br>
+      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_2, card: WhiteCard.where(id: @round.player_2_card_1).pluck(:text).first) %>
+    </div>
+    </div>
+
+    <% end %>
+    <br>
+    <hr>
+<% end %>
+
+<% if @round.player_3.blank? then %>
+  <% x = x + 1 %>
+<% else %>
+  <%= User.where(id: @round.player_3).pluck(:email).first %>
+  <br>
+
+    <% if @round.player_3_card_1.blank? then %>
+      <% x = x %>
+      they still have not picked a card yet
+    <% else %>
+    <div class="container">
+    <div class="WhiteCard">
+      <br>
+      <%= WhiteCard.where(id: @round.player_3_card_1).pluck(:text).first %>
+      <% x = x + 1 %>
+      <br>
+    </div>
+    <div>
+      <br>
+      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_3, card: WhiteCard.where(id: @round.player_3_card_1).pluck(:text).first) %>
+    </div>
+    </div>
+
+    <% end %>
+    <br>
+    <hr>
+<% end %>
+<% if @round.player_4.blank? then %>
+  <% x = x + 1 %>
+<% else %>
+  <%= User.where(id: @round.player_4).pluck(:email).first %>
+  <br>
+
+    <% if @round.player_4_card_1.blank? then %>
+      <% x = x %>
+      they still have not picked a card yet
+    <% else %>
+    <div class="container">
+    <div class="WhiteCard">
+      <br>
+      <%= WhiteCard.where(id: @round.player_4_card_1).pluck(:text).first %>
+      <% x = x + 1 %>
+      <br>
+    </div>
+    <div>
+      <br>
+      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_4, card: WhiteCard.where(id: @round.player_4_card_1).pluck(:text).first) %>
+    </div>
+    </div>
+
+    <% end %>
+    <br>
+    <hr>
+<% end %>
+<% if @round.player_5.blank? then %>
+  <% x = x + 1 %>
+<% else %>
+  <%= User.where(id: @round.player_5).pluck(:email).first %>
+  <br>
+
+    <% if @round.player_5_card_1.blank? then %>
+      <% x = x %>
+      they still have not picked a card yet
+    <% else %>
+    <div class="container">
+    <div class="WhiteCard">
+      <br>
+      <%= WhiteCard.where(id: @round.player_5_card_1).pluck(:text).first %>
+      <% x = x + 1 %>
+      <br>
+    </div>
+    <div>
+      <br>
+      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_5, card: WhiteCard.where(id: @round.player_5_card_1).pluck(:text).first) %>
+    </div>
+    </div>
+
+    <% end %>
+    <br>
+    <hr>
+<% end %>
+<% if @round.player_6.blank? then %>
+  <% x = x + 1 %>
+<% else %>
+  <%= User.where(id: @round.player_6).pluck(:email).first %>
+  <br>
+
+    <% if @round.player_6_card_1.blank? then %>
+      <% x = x %>
+      they still have not picked a card yet
+    <% else %>
+    <div class="container">
+    <div class="WhiteCard">
+      <br>
+      <%= WhiteCard.where(id: @round.player_6_card_1).pluck(:text).first %>
+      <% x = x + 1 %>
+      <br>
+    </div>
+    <div>
+      <br>
+      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_6, card: WhiteCard.where(id: @round.player_6_card_1).pluck(:text).first) %>
+    </div>
+    </div>
+
+    <% end %>
+    <br>
+    <hr>
+<% end %>
+<% if @round.player_7.blank? then %>
+  <% x = x + 1 %>
+<% else %>
+  <%= User.where(id: @round.player_7).pluck(:email).first %>
+  <br>
+
+    <% if @round.player_7_card_1.blank? then %>
+      <% x = x %>
+      they still have not picked a card yet
+    <% else %>
+    <div class="container">
+    <div class="WhiteCard">
+      <br>
+      <%= WhiteCard.where(id: @round.player_7_card_1).pluck(:text).first %>
+      <% x = x + 1 %>
+      <br>
+    </div>
+    <div>
+      <br>
+      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_7, card: WhiteCard.where(id: @round.player_7_card_1).pluck(:text).first) %>
+    </div>
+    </div>
+
+    <% end %>
+    <br>
+    <hr>
+<% end %>
+<% if @round.player_8.blank? then %>
+  <% x = x + 1 %>
+<% else %>
+  <%= User.where(id: @round.player_8).pluck(:email).first %>
+  <br>
+
+    <% if @round.player_18card_1.blank? then %>
+      <% x = x %>
+      they still have not picked a card yet
+    <% else %>
+    <div class="container">
+    <div class="WhiteCard">
+      <br>
+      <%= WhiteCard.where(id: @round.player_8_card_1).pluck(:text).first %>
+      <% x = x + 1 %>
+      <br>
+    </div>
+    <div>
+      <br>
+      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_8, card: WhiteCard.where(id: @round.player_8_card_1).pluck(:text).first) %>
+    </div>
+    </div>
+
+    <% end %>
+    <br>
+    <hr>
+<% end %>
+<% if @round.player_9.blank? then %>
+  <% x = x + 1 %>
+<% else %>
+  <%= User.where(id: @round.player_9).pluck(:email).first %>
+  <br>
+
+    <% if @round.player_9_card_1.blank? then %>
+      <% x = x %>
+      they still have not picked a card yet
+    <% else %>
+    <div class="container">
+    <div class="WhiteCard">
+      <br>
+      <%= WhiteCard.where(id: @round.player_9_card_1).pluck(:text).first %>
+      <% x = x + 1 %>
+      <br>
+    </div>
+    <div>
+      <br>
+      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_9, card: WhiteCard.where(id: @round.player_9_card_1).pluck(:text).first) %>
+    </div>
+    </div>
+
+    <% end %>
+    <br>
+    <hr>
+<% end %>
+<% if @round.player_10.blank? then %>
+  <% x = x + 1 %>
+<% else %>
+  <%= User.where(id: @round.player_10).pluck(:email).first %>
+  <br>
+
+    <% if @round.player_10_card_1.blank? then %>
+
+      <% x = x %>
+      they still have not picked a card yet
+    <% else %>
+    <div class="container">
+    <div class="WhiteCard">
+      <br>
+      <%= WhiteCard.where(id: @round.player_10_card_1).pluck(:text).first %>
+      <% x = x + 1 %>
+      <br>
+    </div>
+    <div>
+      <br>
+      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_10, :card => WhiteCard.where(id: @round.player_10_card_1).pluck(:text).first) %>
+    </div>
+    </div>
+
+    <% end %>
+    <br>
+
+<% end %>

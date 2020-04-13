@@ -1,0 +1,67 @@
+
+<% case current_user.id %>
+  <% when @round.dealer_id %>
+    <%= render "rounds/dealer", round: @round %>
+  <% when @round.player_1 %>
+  <% if @round.player_1_card_1.blank? then %>
+    <%= render "rounds/player_1" , round: @round %>
+  <% else %>
+    you have already played your hand, now sit in the corner and wait for the dealer to pick a winner
+  <% end %>
+  <% when @round.player_2 %>
+    <% if @round.player_2_card_1.blank? then %>
+      <%= render "rounds/player_2" , round: @round %>
+    <% else %>
+      you have already played your hand, now sit in the corner and wait for the dealer to pick a winner
+    <% end %>
+  <% when @round.player_3 %>
+  <% if @round.player_3_card_1.blank? then %>
+    <%= render "rounds/player_3" , round: @round %>
+  <% else %>
+    you have already played your hand, now sit in the corner and wait for the dealer to pick a winner
+  <% end %>
+  <% when @round.player_4 %>
+  <% if @round.player_4_card_1.blank? then %>
+    <%= render "rounds/player_4" , round: @round %>
+  <% else %>
+    you have already played your hand, now sit in the corner and wait for the dealer to pick a winner
+  <% end %>
+  <% when @round.player_5 %>
+  <% if @round.player_5_card_1.blank? then %>
+    <%= render "rounds/player_5" , round: @round %>
+  <% else %>
+    you have already played your hand, now sit in the corner and wait for the dealer to pick a winner
+  <% end %>
+  <% when @round.player_6 %>
+  <% if @round.player_6_card_1.blank? then %>
+    <%= render "rounds/player_6" , round: @round %>
+  <% else %>
+    you have already played your hand, now sit in the corner and wait for the dealer to pick a winner
+  <% end %>
+  <% when @round.player_7 %>
+  <% if @round.player_7_card_1.blank? then %>
+    <%= render "rounds/player_7" , round: @round %>
+  <% else %>
+    you have already played your hand, now sit in the corner and wait for the dealer to pick a winner
+  <% end %>
+  <% when @round.player_8 %>
+  <% if @round.player_8_card_1.blank? then %>
+    <%= render "rounds/player_8" , round: @round %>
+  <% else %>
+    you have already played your hand, now sit in the corner and wait for the dealer to pick a winner
+  <% end %>
+  <% when @round.player_9 %>
+  <% if @round.player_9_card_1.blank? then %>
+    <%= render "rounds/player_9" , round: @round %>
+  <% else %>
+    you have already played your hand, now sit in the corner and wait for the dealer to pick a winner
+  <% end %>
+  <% when @round.player_10 %>
+  <% if @round.player_10_card_1.blank? then %>
+    <%= render "rounds/player_10" , round: @round %>
+  <% else %>
+    you have already played your hand, now sit in the corner and wait for the dealer to pick a winner
+  <% end %>
+  <% else %>
+   You are not part of this game, beat it!!!
+<% end %>

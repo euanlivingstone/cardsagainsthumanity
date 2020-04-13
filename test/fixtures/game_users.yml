@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  game_id: 1
+  points: 1
+  w_card_1: 1
+  w_card_2: 1
+  w_card_3: 1
+  w_card_4: 1
+  w_card_5: 1
+  w_card_6: 1
+  w_card_7: 1
+  w_card_8: 1
+  w_card_9: 1
+  w_card_10: 1
+
+two:
+  user_id: 1
+  game_id: 1
+  points: 1
+  w_card_1: 1
+  w_card_2: 1
+  w_card_3: 1
+  w_card_4: 1
+  w_card_5: 1
+  w_card_6: 1
+  w_card_7: 1
+  w_card_8: 1
+  w_card_9: 1
+  w_card_10: 1
