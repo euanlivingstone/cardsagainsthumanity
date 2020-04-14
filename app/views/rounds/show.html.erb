@@ -148,6 +148,8 @@
 
 <div class="WhiteCard">
   <%= WhiteCard.where(id: Round.where(game_id: @round.game_id).pluck(:win_card_1).second_to_last).pluck(:text).first %>
-
+  <div>
+    <%= image_tag'logo_w.PNG', :style => "position: absolute; bottom: 5px; width: 150px;"%>
+  </div>
 </div>
 </div>
