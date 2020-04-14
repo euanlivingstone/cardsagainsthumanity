@@ -129,9 +129,9 @@
                   </tr>
               </tbody>
         </table>
-        <% if current_user.email = "test1@test.com" then %>
-        <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
+        
+        <% link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %>
+
       </td>
       <% i = i + 1 %>
     <% else %>
@@ -261,9 +261,9 @@
                   </tr>
               </tbody>
         </table>
-        <% if current_user.email = "test1@test.com" then %>
-        <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
+
+        <% link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %>
+
       </td>
       <% i = 1 %>
     <% end %>
