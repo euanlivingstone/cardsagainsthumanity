@@ -1,14 +1,12 @@
 <p id="notice"><%= notice %></p>
 
   <% @whitecards = WhiteCard.order(Arel.sql('RANDOM()')).pluck(:id) %>
-  <% i = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_count).first %>
-<% if i.blank? %>
-<% i = 2 %>
-<% else %>
-  <% i = params[:player] %>
-  <% end %>
-  <% case i %>
+
+  <% i = params[:player].to_i - 1 %>
+
+  <% case params[:player].to_i %>
     <% when 1 %>
+
       <% Round.where(id: params[:round], game_id: params[:game]).update(player_1: "", player_count: i) %>
     <% when 2 %>
       <% Round.where(id: params[:round], game_id: params[:game]).update(player_2: "", player_count: i) %>
@@ -30,8 +28,8 @@
       <% Round.where(id: params[:round], game_id: params[:game]).update(player_10: "", player_count: i) %>
   <% end %>
 
-  <% GameUser.create(user_id: current_user.id, points: 0, game_id: params[:game], w_card_1: @whitecards[1], w_card_2: @whitecards[99], w_card_3: @whitecards[999], w_card_4: @whitecards[36], w_card_5: @whitecards[754], w_card_6: @whitecards[234], w_card_7: @whitecards[385], w_card_8: @whitecards[873], w_card_9: @whitecards[295], w_card_10: @whitecards[3]) %>
+  <% GameUser.where(user_id: current_user.id, game_id: params[:game]).last.destroy %>
 
-you have been added to the game.
+you have been removed to the game.
 
   <%= link_to "back", games_path %>
