@@ -25,6 +25,7 @@
                         <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => 1) %>
                       <% else %>
                         <%= @user %>
+                        <% link_to "remove", remove_player_path(:game => game.id, :round => game.round_id, :player => 1) %>
                       <% end %>
                     </td>
                   </tr>
@@ -36,6 +37,7 @@
                         <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => 2) %>
                       <% else %>
                         <%= @user %>
+                        <% link_to "remove", remove_player_path(:game => game.id, :round => game.round_id, :player => 2) %>
                       <% end %>
                     </td>
                   </tr>
@@ -60,6 +62,7 @@
                         <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => 4) %>
                       <% else %>
                         <%= @user %>
+                        <% link_to "remove", remove_player_path(:game => game.id, :round => game.round_id, :player => 4) %>
                       <% end %>
                     </td>
                   </tr>
@@ -71,6 +74,7 @@
                         <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => 5) %>
                       <% else %>
                         <%= @user %>
+                        <% link_to "remove", remove_player_path(:game => game.id, :round => game.round_id, :player => 5) %>
                       <% end %>
                     </td>
                   </tr>
@@ -82,6 +86,7 @@
                         <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => 6) %>
                       <% else %>
                         <%= @user %>
+                        <% link_to "remove", remove_player_path(:game => game.id, :round => game.round_id, :player => 6) %>
                       <% end %>
                     </td>
                   </tr>
@@ -93,6 +98,7 @@
                         <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => 7) %>
                       <% else %>
                         <%= @user %>
+                        <% link_to "remove", remove_player_path(:game => game.id, :round => game.round_id, :player => 7) %>
                       <% end %>
                     </td>
                   </tr>
@@ -104,6 +110,7 @@
                         <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => 8) %>
                       <% else %>
                         <%= @user %>
+                        <% link_to "remove", remove_player_path(:game => game.id, :round => game.round_id, :player => 8) %>
                       <% end %>
                     </td>
                   </tr>
@@ -115,6 +122,7 @@
                         <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => 9) %>
                       <% else %>
                         <%= @user %>
+                        <% link_to "remove", remove_player_path(:game => game.id, :round => game.round_id, :player => 9) %>
                       <% end %>
                     </td>
                   </tr>
@@ -126,6 +134,7 @@
                         <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => 10) %>
                       <% else %>
                         <%= @user %>
+                        <% link_to "remove", remove_player_path(:game => game.id, :round => game.round_id, :player => 10) %>
                       <% end %>
                     </td>
                   </tr>
@@ -159,6 +168,7 @@
                         <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => 1) %>
                       <% else %>
                         <%= @user %>
+                        <% link_to "remove", remove_player_path(:game => game.id, :round => game.round_id, :player => 1) %>
                       <% end %>
                     </td>
                   </tr>
@@ -170,6 +180,7 @@
                         <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => 2) %>
                       <% else %>
                         <%= @user %>
+                        <% link_to "remove", remove_player_path(:game => game.id, :round => game.round_id, :player => 2) %>
                       <% end %>
                     </td>
                   </tr>
@@ -179,8 +190,10 @@
                       <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_3).first).pluck(:email).first %>
                       <% if @user.blank? %>
                         <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => 3) %>
+
                       <% else %>
                         <%= @user %>
+                        <% link_to "remove", remove_player_path(:game => game.id, :round => game.round_id, :player => 3) %>
                       <% end %>
                     </td>
                   </tr>
@@ -192,6 +205,7 @@
                         <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => 4) %>
                       <% else %>
                         <%= @user %>
+                        <% link_to "remove", remove_player_path(:game => game.id, :round => game.round_id, :player => 4) %>
                       <% end %>
                     </td>
                   </tr>
@@ -203,6 +217,7 @@
                         <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => 5) %>
                       <% else %>
                         <%= @user %>
+                        <% link_to "remove", remove_player_path(:game => game.id, :round => game.round_id, :player => 5) %>
                       <% end %>
                     </td>
                   </tr>
@@ -214,6 +229,7 @@
                         <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => 6) %>
                       <% else %>
                         <%= @user %>
+                        <% link_to "remove", remove_player_path(:game => game.id, :round => game.round_id, :player => 6) %>
                       <% end %>
                     </td>
                   </tr>
@@ -225,6 +241,7 @@
                         <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => 7) %>
                       <% else %>
                         <%= @user %>
+                        <% link_to "remove", remove_player_path(:game => game.id, :round => game.round_id, :player => 7) %>
                       <% end %>
                     </td>
                   </tr>
@@ -236,6 +253,7 @@
                         <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => 8) %>
                       <% else %>
                         <%= @user %>
+                        <% link_to "remove", remove_player_path(:game => game.id, :round => game.round_id, :player => 8) %>
                       <% end %>
                     </td>
                   </tr>
@@ -247,6 +265,7 @@
                         <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => 9) %>
                       <% else %>
                         <%= @user %>
+                        <% link_to "remove", remove_player_path(:game => game.id, :round => game.round_id, :player => 9) %>
                       <% end %>
                     </td>
                   </tr>
@@ -258,6 +277,7 @@
                         <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => 10) %>
                       <% else %>
                         <%= @user %>
+                        <% link_to "remove", remove_player_path(:game => game.id, :round => game.round_id, :player => 10) %>
                       <% end %>
                     </td>
                   </tr>

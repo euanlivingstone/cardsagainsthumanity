@@ -6,30 +6,82 @@
 
   <% case params[:player].to_i %>
     <% when 1 %>
-
-      <% Round.where(id: params[:round], game_id: params[:game]).update(player_1: "", player_count: i) %>
+      <% player2 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_2).last %>
+      <% player3 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_3).last %>
+      <% player4 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_4).last %>
+      <% player5 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_5).last %>
+      <% player6 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_6).last %>
+      <% player7 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_7).last %>
+      <% player8 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_8).last %>
+      <% player9 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_9).last %>
+      <% player10 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_10).last %>
+      <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player2, player_1: player2, player_2: player3, player_3: player4, player_4: player5, player_5: player6, player_6: player_7, player_7: player_8, player_8: player_9, player_9: player_10, player_10: "", player_count: i) %>
     <% when 2 %>
-      <% Round.where(id: params[:round], game_id: params[:game]).update(player_2: "", player_count: i) %>
+      <% player1 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_1).last %>
+      <% player3 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_3).last %>
+      <% player4 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_4).last %>
+      <% player5 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_5).last %>
+      <% player6 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_6).last %>
+      <% player7 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_7).last %>
+      <% player8 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_8).last %>
+      <% player9 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_9).last %>
+      <% player10 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_10).last %>
+      <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_2: player3, player_3: player4, player_4: player5, player_5: player6, player_6: player_7, player_7: player_8, player_8: player_9, player_9: player_10, player_10: "", player_count: i) %>
     <% when 3 %>
-      <% Round.where(id: params[:round], game_id: params[:game]).update(player_3: "", player_count: i) %>
+      <% player1 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_1).last %>
+      <% player4 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_4).last %>
+      <% player5 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_5).last %>
+      <% player6 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_6).last %>
+      <% player7 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_7).last %>
+      <% player8 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_8).last %>
+      <% player9 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_9).last %>
+      <% player10 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_10).last %>
+      <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_3: player4, player_4: player5, player_5: player6, player_6: player_7, player_7: player_8, player_8: player_9, player_9: player_10, player_10: "", player_count: i) %>
     <% when 4 %>
-      <% Round.where(id: params[:round], game_id: params[:game]).update(player_4: "", player_count: i) %>
+      <% player1 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_1).last %>
+      <% player5 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_5).last %>
+      <% player6 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_6).last %>
+      <% player7 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_7).last %>
+      <% player8 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_8).last %>
+      <% player9 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_9).last %>
+      <% player10 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_10).last %>
+      <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_4: player5, player_5: player6, player_6: player_7, player_7: player_8, player_8: player_9, player_9: player_10, player_10: "", player_count: i) %>
     <% when 5 %>
-      <% Round.where(id: params[:round], game_id: params[:game]).update(player_5: "", player_count: i) %>
+      <% player1 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_1).last %>
+      <% player6 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_6).last %>
+      <% player7 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_7).last %>
+      <% player8 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_8).last %>
+      <% player9 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_9).last %>
+      <% player10 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_10).last %>
+      <% Round.where(id: params[:round], game_id: params[:game]).update(ealer_id: player1, player_5: player6, player_6: player_7, player_7: player_8, player_8: player_9, player_9: player_10, player_10: "", player_count: i) %>
     <% when 6 %>
-      <% Round.where(id: params[:round], game_id: params[:game]).update(player_6: "", player_count: i) %>
+      <% player1 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_1).last %>
+      <% player7 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_7).last %>
+      <% player8 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_8).last %>
+      <% player9 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_9).last %>
+      <% player10 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_10).last %>
+      <% Round.where(id: params[:round], game_id: params[:game]).update(pealer_id: player1, player_6: player_7, player_7: player_8, player_8: player_9, player_9: player_10, player_10: "", player_count: i) %>
     <% when 7 %>
-      <% Round.where(id: params[:round], game_id: params[:game]).update(player_7: "", player_count: i) %>
+      <% player1 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_1).last %>
+      <% player8 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_8).last %>
+      <% player9 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_9).last %>
+      <% player10 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_10).last %>
+      <% Round.where(id: params[:round], game_id: params[:game]).update(ealer_id: player1, player_7: player_8, player_8: player_9, player_9: player_10, player_10: "", player_count: i) %>
     <% when 8 %>
-      <% Round.where(id: params[:round], game_id: params[:game]).update(player_8: "", player_count: i) %>
+      <% player1 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_1).last %>
+      <% player9 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_9).last %>
+      <% player10 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_10).last %>
+      <% Round.where(id: params[:round], game_id: params[:game]).update(ealer_id: player1, player_8: player_9, player_9: player_10, player_10: "", player_count: i) %>
     <% when 9 %>
-      <% Round.where(id: params[:round], game_id: params[:game]).update(player_9: "", player_count: i) %>
+      <% player1 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_1).last %>
+      <% player10 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_10).last %>
+      <% Round.where(id: params[:round], game_id: params[:game]).update(ealer_id: player1, player_9: player_10, player_10: "", player_count: i) %>
     <% when 10 %>
-      <% Round.where(id: params[:round], game_id: params[:game]).update(player_10: "", player_count: i) %>
+      <% Round.where(id: params[:round], game_id: params[:game]).update(ealer_id: player1, player_10: "", player_count: i) %>
   <% end %>
 
   <% GameUser.where(user_id: current_user.id, game_id: params[:game]).last.destroy %>
 
-you have been removed to the game.
+that player has been removed have been removed to the game.
 
-  <%= link_to "back", games_path %>
+  <%= link_to "click here to return to the list of open games", games_path %>

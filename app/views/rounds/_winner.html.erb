@@ -1,12 +1,12 @@
 
 <br>
-player id: <%= params[:player] %>
+player id: <% params[:player] %>
 <p>
-round id: <%= params[:round] %>
+round id: <% params[:round] %>
 </p><p>
-game id: <%= params[:game] %>
+game id: <% params[:game] %>
 </p><p>
-card id: <%= params[:card] %>
+card id: <% params[:card] %>
 </p>
 
   <% Round.where(id: params[:round]).update(win_player: params[:player], win_card_1: params[:card]) %>
@@ -134,4 +134,4 @@ player 1 is now dealer
 Vote registered, and new round started.
 <br>
 <% j = params[:round].to_i + 1 %>
-  <%= link_to "back", "rounds/" + j.to_s%>
+  <%= link_to "Click Here To Return To The Game", "rounds/" + j.to_s%>
