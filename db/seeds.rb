@@ -1092,7 +1092,7 @@ BlackCard.create([
   {text: "I will create the Department of __________________.", pick_amount: "1"},
   {text: "Make a haiku.", pick_amount: "3"},
   {text: "__________________, It’s a trap!", pick_amount: "1"},
-  {text: "I never truly understood __________________ until I encountered _________________.", pick_amount: "1"},
+  {text: "I never truly understood __________________ until I encountered _________________.", pick_amount: "2"},
   {text: "Uh, hey guys, I know this was my idea, but I’m having serious doubts about ____________., pick_amount: 1"},
   {text: "After four platinum albums and three Grammys, it’s time to get back to my roots, to what inspired me to make music in the first place: __________.", pick_amount: "1"},
   {text: "__________________: kid-tested, mother-approved.", pick_amount: "1"},
