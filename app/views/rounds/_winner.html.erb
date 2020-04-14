@@ -3,8 +3,9 @@
 <% params[:player] %>
 <% params[:round] %>
 <% params[:game] %>
+<%= params[:card] %>
 
-  <% Round.where(id: params[:round], game_id: params[:game]).update(win_player: params[:player], win_card_1: params[:card]) %>
+  <% Round.where(id: params[:round]).update(win_player: params[:player], win_card_1: params[:card].to_i) %>
   <% i = GameUser.where(game_id: params[:game], user_id: params[:player]).pluck(:points).first %>
   <% if i.blank? then %>
    <% i = 1 %>
@@ -110,5 +111,5 @@
 
 Vote registered, and new round started.
 <br>
-<% j = params[:round] + 1 %>
+<% j = params[:round].to_i + 1 %>
   <%= link_to "back", "rounds/" + j.to_s%>
