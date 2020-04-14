@@ -3,7 +3,7 @@
 <% params[:player] %>
 <% params[:round] %>
 <% params[:game] %>
-<%= params[:card] %>
+<% params[:card] %>
 
   <% Round.where(id: params[:round]).update(win_player: params[:player], win_card_1: params[:card].to_i) %>
   <% i = GameUser.where(game_id: params[:game], user_id: params[:player]).pluck(:points).first %>
@@ -121,7 +121,7 @@ player 1 is now dealer
   <% z = player_1 %>
   player 1 is now dealer
 <% end %>
-<%= z %>
+<% z %>
 <% w = round_number + 1 %>
 
   <% Round.create(player_count: player_count, player_1: player_1, player_2: player_2, player_3: player_3, player_4: player_4, player_5: player_5, player_6: player_6, player_7: player_7, player_8: player_8, player_9: player_9, player_10: player_10, round_number: w, dealer_id: z, game_id: params[:game], b_card: BlackCard.where(pick_amount: 1).order(Arel.sql('RANDOM()')).pluck(:id).first) %>
