@@ -19,7 +19,7 @@
       </div>
       <div>
         <br>
-        <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_1, card: WhiteCard.where(id: @round.player_1_card_1).pluck(:text).first) %>
+        <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_1, card: WhiteCard.where(id: @round.player_1_card_1).pluck(:id).first) %>
       </div>
       </div>
 
@@ -47,7 +47,7 @@
     </div>
     <div>
       <br>
-      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_2, card: WhiteCard.where(id: @round.player_2_card_1).pluck(:text).first) %>
+      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_2, card: WhiteCard.where(id: @round.player_2_card_1).pluck(:id).first) %>
     </div>
     </div>
 
@@ -75,7 +75,7 @@
     </div>
     <div>
       <br>
-      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_3, card: WhiteCard.where(id: @round.player_3_card_1).pluck(:text).first) %>
+      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_3, card: WhiteCard.where(id: @round.player_3_card_1).pluck(:id).first) %>
     </div>
     </div>
 
@@ -102,7 +102,7 @@
     </div>
     <div>
       <br>
-      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_4, card: WhiteCard.where(id: @round.player_4_card_1).pluck(:text).first) %>
+      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_4, card: WhiteCard.where(id: @round.player_4_card_1).pluck(:id).first) %>
     </div>
     </div>
 
@@ -129,7 +129,7 @@
     </div>
     <div>
       <br>
-      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_5, card: WhiteCard.where(id: @round.player_5_card_1).pluck(:text).first) %>
+      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_5, card: WhiteCard.where(id: @round.player_5_card_1).pluck(:id).first) %>
     </div>
     </div>
 
@@ -156,7 +156,7 @@
     </div>
     <div>
       <br>
-      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_6, card: WhiteCard.where(id: @round.player_6_card_1).pluck(:text).first) %>
+      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_6, card: WhiteCard.where(id: @round.player_6_card_1).pluck(:id).first) %>
     </div>
     </div>
 
@@ -183,7 +183,7 @@
     </div>
     <div>
       <br>
-      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_7, card: WhiteCard.where(id: @round.player_7_card_1).pluck(:text).first) %>
+      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_7, card: WhiteCard.where(id: @round.player_7_card_1).pluck(:id).first) %>
     </div>
     </div>
 
@@ -210,7 +210,7 @@
     </div>
     <div>
       <br>
-      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_8, card: WhiteCard.where(id: @round.player_8_card_1).pluck(:text).first) %>
+      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_8, card: WhiteCard.where(id: @round.player_8_card_1).pluck(:id).first) %>
     </div>
     </div>
 
@@ -237,7 +237,7 @@
     </div>
     <div>
       <br>
-      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_9, card: WhiteCard.where(id: @round.player_9_card_1).pluck(:text).first) %>
+      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_9, card: WhiteCard.where(id: @round.player_9_card_1).pluck(:id).first) %>
     </div>
     </div>
 
@@ -265,7 +265,7 @@
     </div>
     <div>
       <br>
-      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_10, :card => WhiteCard.where(id: @round.player_10_card_1).pluck(:text).first) %>
+      <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => @round.player_10, :card => WhiteCard.where(id: @round.player_10_card_1).pluck(:id).first) %>
     </div>
     </div>
 
