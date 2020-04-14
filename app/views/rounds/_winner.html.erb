@@ -110,4 +110,5 @@
 
 Vote registered, and new round started.
 <br>
-  <%= link_to "back", "rounds/" + params[:round].to_s%>
+<% j = params[:round] + 1 %>
+  <%= link_to "back", "rounds/" + j.to_s%>
