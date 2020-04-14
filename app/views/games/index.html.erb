@@ -15,7 +15,7 @@
               <tbody>
                 <tr>
                   <td>Round:</td>
-                  <td><%= game.round_id  %></td>
+                  <td><%= Round.where(id: game.round_id).pluck(:round_number).last  %></td>
                 </tr>
                   <tr>
                     <td>player_1</td>
@@ -149,7 +149,7 @@
               <tbody>
                 <tr>
                   <td>Round:</td>
-                  <td><%= game.round_id  %></td>
+                  <td><%= Round.where(id: game.round_id).pluck(:round_number).last  %></td>
                 </tr>
                   <tr>
                     <td>player_1</td>
