@@ -1,11 +1,15 @@
 
 <br>
-<% params[:player] %>
-<% params[:round] %>
-<% params[:game] %>
-<% params[:card] %>
+player id: <%= params[:player] %>
+<p>
+round id: <%= params[:round] %>
+</p><p>
+game id: <%= params[:game] %>
+</p><p>
+card id: <%= params[:card] %>
+</p>
 
-  <% Round.where(id: params[:round]).update(win_player: params[:player], win_card_1: params[:card].to_i) %>
+  <% Round.where(id: params[:round]).update(win_player: params[:player], win_card_1: params[:card]) %>
   <% i = GameUser.where(game_id: params[:game], user_id: params[:player]).pluck(:points).first %>
   <% if i.blank? then %>
    <% i = 1 %>

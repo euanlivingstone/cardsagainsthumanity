@@ -137,7 +137,7 @@
 <%= link_to 'Back', games_path %>
 <hr>
 <div class="container">
-	Winner of the last round in the game was: <% User.where(id: Round.where(game_id: @round.game_id).pluck(:win_player).second_to_last).pluck(:email).first %>
+	Winner of the last round in the game was: <%= User.where(id: Round.where(game_id: @round.game_id).pluck(:win_player).second_to_last).pluck(:email).first %>
 </div>
 <div class="container">
   <div class="WhiteCard">
