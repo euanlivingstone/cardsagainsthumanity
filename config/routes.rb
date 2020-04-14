@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :rounds
   get 'welcome/index'
   devise_for :users
-
+  get 'remove_player' => 'games#_delete_player'
   get 'add_player' => 'games#_add_player'
   get 'winner' => 'rounds#_winner'
   get 'select' => 'rounds#_select'

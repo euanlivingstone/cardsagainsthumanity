@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+  <% @whitecards = WhiteCard.order(Arel.sql('RANDOM()')).pluck(:id) %>
+  <% i = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_count).first %>
+<% if i.blank? %>
+<% i = 2 %>
+<% else %>
+  <% i = i - 1 %>
+  <% end %>
+  <% case i %>
+    <% when 1 %>
+      <% Round.where(id: params[:round], game_id: params[:game]).update(player_1: "", player_count: i) %>
+    <% when 2 %>
+      <% Round.where(id: params[:round], game_id: params[:game]).update(player_2: "", player_count: i) %>
+    <% when 3 %>
+      <% Round.where(id: params[:round], game_id: params[:game]).update(player_3: "", player_count: i) %>
+    <% when 4 %>
+      <% Round.where(id: params[:round], game_id: params[:game]).update(player_4: "", player_count: i) %>
+    <% when 5 %>
+      <% Round.where(id: params[:round], game_id: params[:game]).update(player_5: "", player_count: i) %>
+    <% when 6 %>
+      <% Round.where(id: params[:round], game_id: params[:game]).update(player_6: "", player_count: i) %>
+    <% when 7 %>
+      <% Round.where(id: params[:round], game_id: params[:game]).update(player_7: "", player_count: i) %>
+    <% when 8 %>
+      <% Round.where(id: params[:round], game_id: params[:game]).update(player_8: "", player_count: i) %>
+    <% when 9 %>
+      <% Round.where(id: params[:round], game_id: params[:game]).update(player_9: "", player_count: i) %>
+    <% when 10 %>
+      <% Round.where(id: params[:round], game_id: params[:game]).update(player_10: "", player_count: i) %>
+  <% end %>
+
+  <% GameUser.create(user_id: current_user.id, points: 0, game_id: params[:game], w_card_1: @whitecards[1], w_card_2: @whitecards[99], w_card_3: @whitecards[999], w_card_4: @whitecards[36], w_card_5: @whitecards[754], w_card_6: @whitecards[234], w_card_7: @whitecards[385], w_card_8: @whitecards[873], w_card_9: @whitecards[295], w_card_10: @whitecards[3]) %>
+
+you have been added to the game.
+
+  <%= link_to "back", games_path %>

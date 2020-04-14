@@ -45,6 +45,7 @@
                       <% @user = User.where(id: Round.where(id: game.round_id).pluck(:player_3).first).pluck(:email).first %>
                       <% if @user.blank? %>
                         <%= link_to "join", add_player_path(:game => game.id, :round => game.round_id, :player => "3") %>
+                        <%= link_to "remove", remove_player_path(:game => game.id, :round => game.round_id, :player => "3") %>
                       <% else %>
                         <%= @user %>
                       <% end %>
@@ -129,7 +130,7 @@
                   </tr>
               </tbody>
         </table>
-        
+
         <% link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %>
 
       </td>
