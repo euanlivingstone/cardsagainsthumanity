@@ -1,7 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<div class="dealerFont">
+<h1><strong>Dealer: </strong><%= User.where(id: @round.dealer_id).pluck(:email).last %></h1>
+</div>
   <strong>Round:</strong>
   <%= @round.round_number %>
+
+
   <div class="gameTable">
   <table>
     <thead>

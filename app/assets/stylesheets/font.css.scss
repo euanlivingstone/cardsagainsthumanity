@@ -4,3 +4,10 @@
    font-weight: normal;
    font-style: normal;
 }
+@font-face {
+    font-family: 'DEADLY';
+    src:    font-url( asset-path('DEADLYKILLERS.otf'));
+    src:    font-url( asset-path('DEADLYKILLERS.ttf')) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
