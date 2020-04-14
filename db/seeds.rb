@@ -1391,7 +1391,8 @@ WhiteCard.create([
   {text: "Wearing glasses and sounding smart."},
   {text: "Western standards of beauty."},
   {text: "Coronavirus."},
-  {text: "COVID-19."}
+  {text: "COVID-19."},
+  {text: "Two midgets shitting into a bucket."}
 ])
 
 User.create([
