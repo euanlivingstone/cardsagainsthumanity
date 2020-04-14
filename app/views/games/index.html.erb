@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<table width="100%">
+<table width="100%" id="CAHtableMain">
   <% i = 0 %>
   <tr>
 <% @games.each do |game| %>
     <% if i < 3 then %>
       <td width = "30%" >
-        <table>
+        <table id="CAHtable">
               <thead>
                 <tr>
                   <th colspan="2" class="gametitle" ><h1><%= link_to(game.name, "rounds/" + game.round_id.to_s) %></h1></th>
@@ -149,7 +149,7 @@
     </tr>
     <tr>
       <td width = "30%" >
-        <table>
+        <table id="CAHtable">
               <thead>
                 <tr>
                   <th colspan="2" class="gametitle" ><h1><%= link_to(game.name, "rounds/" + game.round_id.to_s) %></h1></th>

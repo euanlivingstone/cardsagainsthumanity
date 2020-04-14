@@ -57,3 +57,28 @@
   background-color: black;
   color: white;
 }
+
+#CAHtableMain {
+  width: 100%;
+  font-family: "HelvetiHand";
+}
+#CAHtableMain td, #CAHtableMain th {
+  padding-left: 8px;
+  padding-right: 8px;
+  text-align: center;
+}
+
+#CAHtable {
+  font-family: "HelvetiHand";
+  border-collapse: collapse;
+}
+
+#CAHtable td, #CAHtable th {
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+
+#CAHtable td {
+  font-family: "HelvetiHand";
+}
