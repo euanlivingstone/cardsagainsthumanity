@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<% if current_user then  %>
 <div class="dealerFont">
 <h1><strong>Dealer: </strong><%= User.where(id: @round.dealer_id).pluck(:email).last %></h1>
 </div>
@@ -150,7 +150,6 @@
         </div>
     </div>
   </div>
-
 <div class="WhiteCard">
   <%= WhiteCard.where(id: Round.where(game_id: @round.game_id).pluck(:win_card_1).second_to_last).pluck(:text).first %>
   <div>
@@ -158,3 +157,6 @@
   </div>
 </div>
 </div>
+<% else %>
+Please Sign In!!
+<% end %>

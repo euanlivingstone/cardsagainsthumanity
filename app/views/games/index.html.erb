@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+  <% if current_user then  %>
 <table width="100%" id="CAHtableMain">
   <% i = 0 %>
   <tr>
@@ -298,7 +298,9 @@
 
 
 <div class="gametitle"><h1><%= link_to 'Click Here - New Game', new_game_path %> </h1></div>
-
+<% else %>
+Please Sign In!!
+<% end %>
 <p>
   <ul>
     <li>click on New Game to setup new game or join an existing game</li>
