@@ -1,6 +1,6 @@
 
   <% if current_user then  %>
-
+hello, <%= current_user.email %>
   <div class="gametitle"><h1><%= link_to "Click here for Games", games_path %></h1></div>
   <% else %>
   Please Sign In!!

@@ -31,7 +31,7 @@
 
         </td>
         <td>
-          <%= GameUser.where(id: @round.player_1).pluck(:points).first %>
+          <%= GameUser.where(user_id: @round.player_1, game_id: @round.game_id).pluck(:points).first %>
         </td>
       </tr>
       <tr>
@@ -39,7 +39,7 @@
           <%= User.where(id: @round.player_2).pluck(:email).first %>
         </td>
         <td>
-          <%= GameUser.where(id: @round.player_2).pluck(:points).first %>
+          <%= GameUser.where(user_id: @round.player_2, game_id: @round.game_id).pluck(:points).first %>
         </td>
       </tr>
       <tr>
@@ -47,7 +47,7 @@
           <%= User.where(id: @round.player_3).pluck(:email).first %>
         </td>
         <td>
-          <%= GameUser.where(id: @round.player_3).pluck(:points).first %>
+          <%= GameUser.where(user_id: @round.player_3, game_id: @round.game_id).pluck(:points).first %>
         </td>
       </tr>
       <tr>
@@ -55,7 +55,15 @@
           <%= User.where(id: @round.player_4).pluck(:email).first %>
         </td>
         <td>
-          <%= GameUser.where(id: @round.player_5).pluck(:points).first %>
+          <%= GameUser.where(user_id: @round.player_4, game_id: @round.game_id).pluck(:points).first %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= User.where(id: @round.player_5).pluck(:email).first %>
+        </td>
+        <td>
+          <%= GameUser.where(user_id: @round.player_5, game_id: @round.game_id).pluck(:points).first %>
         </td>
       </tr>
       <tr>
@@ -63,7 +71,7 @@
           <%= User.where(id: @round.player_6).pluck(:email).first %>
         </td>
         <td>
-          <%= GameUser.where(id: @round.player_6).pluck(:points).first %>
+          <%= GameUser.where(user_id: @round.player_6, game_id: @round.game_id).pluck(:points).first %>
         </td>
       </tr>
       <tr>
@@ -71,7 +79,7 @@
           <%= User.where(id: @round.player_7).pluck(:email).first %>
         </td>
         <td>
-          <%= GameUser.where(id: @round.player_7).pluck(:points).first %>
+          <%= GameUser.where(user_id: @round.player_7, game_id: @round.game_id).pluck(:points).first %>
         </td>
       </tr>
       <tr>
@@ -79,7 +87,7 @@
           <%= User.where(id: @round.player_8).pluck(:email).first %>
         </td>
         <td>
-          <%= GameUser.where(id: @round.player_8).pluck(:points).first %>
+          <%= GameUser.where(user_id: @round.player_8, game_id: @round.game_id).pluck(:points).first %>
         </td>
       </tr>
       <tr>
@@ -87,7 +95,7 @@
           <%= User.where(id: @round.player_9).pluck(:email).first %>
         </td>
         <td>
-          <%= GameUser.where(id: @round.player_9).pluck(:points).first %>
+          <%= GameUser.where(user_id: @round.player_9, game_id: @round.game_id).pluck(:points).first %>
         </td>
       </tr>
       <tr>
@@ -95,7 +103,7 @@
           <%= User.where(id: @round.player_10).pluck(:email).first %>
         </td>
         <td>
-          <%= GameUser.where(id: @round.player_10).pluck(:points).first %>
+          <%= GameUser.where(user_id: @round.player_10, game_id: @round.game_id).pluck(:points).first %>
         </td>
       </tr>
     </tbody>
