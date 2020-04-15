@@ -127,7 +127,7 @@
 
 
 <% if !@round.win_card_1 = 0 %>
-  <div class="WhiteCard">
+  <div class="container WhiteCard">
   <%= WhiteCard.where(id: @round.win_card_1).pluck(:text).first %>
   </div>
   <div>
@@ -149,7 +149,7 @@
 </div>
 <div class="container">
   <div class="WhiteCard">
-    <div class="BlackCard">
+    <div class="container BlackCard">
         <br>
         <%= BlackCard.where(id: Round.where(game_id: @round.game_id).pluck(:b_card).second_to_last).pluck(:text).first %>
 
@@ -158,7 +158,7 @@
         </div>
     </div>
   </div>
-<div class="WhiteCard">
+<div class="container WhiteCard">
   <%= WhiteCard.where(id: Round.where(game_id: @round.game_id).pluck(:win_card_1).second_to_last).pluck(:text).first %>
   <div>
     <%= image_tag'logo_w.PNG', :style => "position: absolute; bottom: 5px; width: 150px;"%>
