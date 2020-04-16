@@ -133,5 +133,8 @@ player 1 is now dealer
 
 Vote registered, and new round started.
 <br>
-<% j = params[:round].to_i + 1 %>
-  <%= link_to "Click Here To Return To The Game", "rounds/" + j.to_s%>
+
+<% j = Round.pluck(:id).last %>
+<% j = "/rounds/" + j.to_s %>
+  <%= link_to "Click Here To Return To The Game", j%>
+  <% controller.redirect_to j %>

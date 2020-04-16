@@ -15,7 +15,10 @@
       <% player8 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_8).last %>
       <% player9 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_9).last %>
       <% player10 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_10).last %>
-      
+
+
+
+
       <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player2, player_1: player2, player_2: player3, player_3: player4, player_4: player5, player_5: player6, player_6: player_7, player_7: player_8, player_8: player_9, player_9: player_10, player_10: "", player_count: i) %>
     <% when 2 %>
       <% player1 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_1).last %>
@@ -86,3 +89,5 @@
 that player has been removed have been removed to the game.
 
   <%= link_to "click here to return to the list of open games", games_path %>
+
+  <% controller.redirect_back(fallback_location: root_path) %>

@@ -70,4 +70,5 @@ card updated
 
 
 
-<%= link_to "back", "rounds/"+params[:round].to_s %>
+
+<% controller.redirect_back(fallback_location: root_path, notice: "you picked that one? Really???") %>
