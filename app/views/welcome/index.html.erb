@@ -10,7 +10,7 @@ hello, <%= current_user.email %>
 <hr>
 <br>
 <div class="container">
-<div class="WhiteCard">
+<%= link_to black_cards_path do %><div class="WhiteCard">
   <div class="container BlackCard">
       <br>
       <% @black_card = BlackCard.where(pick_amount: "1").order(Arel.sql('random()')).first %>
@@ -21,8 +21,9 @@ hello, <%= current_user.email %>
       </div>
   </div>
 </div>
+<% end %>
 
-
+<%= link_to white_cards_path do %>
 <div class="container WhiteCard">
   <br>
   <% @white_card = WhiteCard.order(Arel.sql('random()')).first %>
@@ -31,13 +32,13 @@ hello, <%= current_user.email %>
     <%= image_tag'logo_w.PNG', :style => "position: absolute; bottom: 5px; width: 150px;" %>
   </div>
 </div>
-
+<% end %>
 </div>
 <br>
 <hr>
 <div class="HelvetiHandFont">
-  <P>Welcome to this online version of <%= link_to "Cards Agaisnt Humanity", "https://store.cardsagainsthumanity.com/" %> game.</p>
-  <P>please consider donating to help the <%= link_to "NHS Charites Together", "https://www.nhscharitiestogether.co.uk/" %> during this pandemic
+  <P class="HelvetiHand">Welcome to this online version of <%= link_to "Cards Agaisnt Humanity", "https://store.cardsagainsthumanity.com/" %> game.</p>
+  <P class="HelvetiHand">please consider donating to help the <%= link_to "NHS Charites Together", "https://www.nhscharitiestogether.co.uk/" %> during this pandemic
 </div>
 
 <script type="text/javascript">

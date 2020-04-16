@@ -19,11 +19,12 @@
  /* Optional theme */
  @import url('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css');
 
-body{
+body, li, ul, p {
   font-family: "HelvetiHand";
 }
+
 .HelvetiHandFont{
-  font-family: "HelvetiHand";  
+  font-family: "HelvetiHand";
 }
 .navbar-brand{
   font-family: "HelvetiHand";
