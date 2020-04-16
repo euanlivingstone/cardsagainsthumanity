@@ -1,14 +1,15 @@
 
 
 <% x = 0 %>
+<% y = 0 %>
 <% if @round.player_1.blank? then %>
-  <% x = x + 1 %>
+  <% y = y + 1 %>
 <% else %>
-  <%= User.where(id: @round.player_1).pluck(:email).first %>
+
   <br>
       <% if @round.player_1_card_1.blank? then %>
         <% x = x %>
-        they still have not picked a card yet
+
       <% else %>
       <div class="container">
       <div class="WhiteCard">
@@ -25,18 +26,18 @@
 
       <% end %>
       <br>
-      <hr>
+
 <% end %>
 
 <% if @round.player_2.blank? then %>
-  <% x = x + 1 %>
+  <% y = y + 1 %>
 <% else %>
-  <%= User.where(id: @round.player_2).pluck(:email).first %>
+
   <br>
 
     <% if @round.player_2_card_1.blank? then %>
       <% x = x %>
-      they still have not picked a card yet
+
     <% else %>
     <div class="container">
     <div class="WhiteCard">
@@ -53,18 +54,18 @@
 
     <% end %>
     <br>
-    <hr>
+
 <% end %>
 
 <% if @round.player_3.blank? then %>
-  <% x = x + 1 %>
+  <% y = y + 1 %>
 <% else %>
-  <%= User.where(id: @round.player_3).pluck(:email).first %>
+
   <br>
 
     <% if @round.player_3_card_1.blank? then %>
       <% x = x %>
-      they still have not picked a card yet
+
     <% else %>
     <div class="container">
     <div class="WhiteCard">
@@ -81,17 +82,17 @@
 
     <% end %>
     <br>
-    <hr>
+
 <% end %>
 <% if @round.player_4.blank? then %>
-  <% x = x + 1 %>
+  <% y = y + 1 %>
 <% else %>
-  <%= User.where(id: @round.player_4).pluck(:email).first %>
+
   <br>
 
     <% if @round.player_4_card_1.blank? then %>
       <% x = x %>
-      they still have not picked a card yet
+
     <% else %>
     <div class="container">
     <div class="WhiteCard">
@@ -108,17 +109,17 @@
 
     <% end %>
     <br>
-    <hr>
+
 <% end %>
 <% if @round.player_5.blank? then %>
-  <% x = x + 1 %>
+  <% y = y + 1 %>
 <% else %>
-  <%= User.where(id: @round.player_5).pluck(:email).first %>
+
   <br>
 
     <% if @round.player_5_card_1.blank? then %>
       <% x = x %>
-      they still have not picked a card yet
+
     <% else %>
     <div class="container">
     <div class="WhiteCard">
@@ -135,17 +136,17 @@
 
     <% end %>
     <br>
-    <hr>
+
 <% end %>
 <% if @round.player_6.blank? then %>
-  <% x = x + 1 %>
+  <% y = y + 1 %>
 <% else %>
-  <%= User.where(id: @round.player_6).pluck(:email).first %>
+
   <br>
 
     <% if @round.player_6_card_1.blank? then %>
       <% x = x %>
-      they still have not picked a card yet
+
     <% else %>
     <div class="container">
     <div class="WhiteCard">
@@ -162,17 +163,17 @@
 
     <% end %>
     <br>
-    <hr>
+
 <% end %>
 <% if @round.player_7.blank? then %>
-  <% x = x + 1 %>
+  <% y = y + 1 %>
 <% else %>
-  <%= User.where(id: @round.player_7).pluck(:email).first %>
+
   <br>
 
     <% if @round.player_7_card_1.blank? then %>
       <% x = x %>
-      they still have not picked a card yet
+
     <% else %>
     <div class="container">
     <div class="WhiteCard">
@@ -189,17 +190,17 @@
 
     <% end %>
     <br>
-    <hr>
+
 <% end %>
 <% if @round.player_8.blank? then %>
-  <% x = x + 1 %>
+  <% y = y + 1 %>
 <% else %>
-  <%= User.where(id: @round.player_8).pluck(:email).first %>
+
   <br>
 
     <% if @round.player_18card_1.blank? then %>
       <% x = x %>
-      they still have not picked a card yet
+
     <% else %>
     <div class="container">
     <div class="WhiteCard">
@@ -216,17 +217,17 @@
 
     <% end %>
     <br>
-    <hr>
+
 <% end %>
 <% if @round.player_9.blank? then %>
-  <% x = x + 1 %>
+  <% y = y + 1 %>
 <% else %>
-  <%= User.where(id: @round.player_9).pluck(:email).first %>
+
   <br>
 
     <% if @round.player_9_card_1.blank? then %>
       <% x = x %>
-      they still have not picked a card yet
+
     <% else %>
     <div class="container">
     <div class="WhiteCard">
@@ -243,18 +244,18 @@
 
     <% end %>
     <br>
-    <hr>
+
 <% end %>
 <% if @round.player_10.blank? then %>
-  <% x = x + 1 %>
+  <% y = y + 1 %>
 <% else %>
-  <%= User.where(id: @round.player_10).pluck(:email).first %>
+
   <br>
 
     <% if @round.player_10_card_1.blank? then %>
 
       <% x = x %>
-      they still have not picked a card yet
+
     <% else %>
     <div class="container">
     <div class="WhiteCard">
@@ -273,3 +274,9 @@
     <br>
 
 <% end %>
+<p>
+<%= 10 - y %> players in the game
+</p><p>
+<%= x %> have played their cards which leaves <%= ((10 - y) - x) - 1 %> left to play and 1 Card Czar.
+
+</p>
