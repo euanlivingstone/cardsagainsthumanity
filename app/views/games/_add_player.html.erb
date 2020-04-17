@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
   <% @whitecards = WhiteCard.order(Arel.sql('RANDOM()')).pluck(:id) %>
   <% i = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_count).first %>

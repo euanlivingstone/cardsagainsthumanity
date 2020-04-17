@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <% @whitecards = WhiteCard.order(Arel.sql('RANDOM()')).pluck(:id) %>

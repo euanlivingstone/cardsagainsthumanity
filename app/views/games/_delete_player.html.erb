@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
   <% @whitecards = WhiteCard.order(Arel.sql('RANDOM()')).pluck(:id) %>
 
   <% i = params[:player].to_i - 1 %>
@@ -16,26 +14,36 @@
       <% player9 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_9).last %>
       <% player10 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_10).last %>
 
-      <% if player2.blank? then %>
-        <% controller.redirect_back(fallback_location: root_path, notice: "you are the only remaining player this game has now been deleted!") %>
-      <% else if player3.blank? then %>
+      <% if player2.blank? %>
+        <% Game.where(id: params[:game]).last.destroy %>
+        <% @notice = "you were the only remaining player so this game has now been deleted!" %>
+      <% elsif player3.blank? %>
         <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player2, player_1: player2, player_2: "", player_count: i) %>
-      <% else if player4.blank? then %>
+        <% @notice = "you have left the game!" %>
+      <% elsif player4.blank? %>
         <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player2, player_1: player2, player_2: player3, player_3: "", player_count: i) %>
-      <% else if player5.blank? then %>
+        <% @notice = "you have left the game!" %>
+      <% elsif player5.blank? %>
+      <% @notice = "you have left the game!" %>
         <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player2, player_1: player2, player_2: player3, player_3: player4, player_4: "", player_count: i) %>
-      <% else if player6.blank? then %>
+      <% elsif player6.blank? %>
+      <% @notice = "you have left the game!" %>
         <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player2, player_1: player2, player_2: player3, player_3: player4, player_4: player5, player_5: "", player_count: i) %>
-      <% else if player7.blank? then %>
+      <% elsif player7.blank? %>
+      <% @notice = "you have left the game!" %>
         <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player2, player_1: player2, player_2: player3, player_3: player4, player_4: player5, player_5: player6, player_6: "", player_count: i) %>
-      <% else if player8.blank? then %>
-        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player2, player_1: player2, player_2: player3, player_3: player4, player_4: player5, player_5: player6, player_6: player_7, player_7: "", player_count: i) %>
-      <% else if player9.blank? then %>
-        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player2, player_1: player2, player_2: player3, player_3: player4, player_4: player5, player_5: player6, player_6: player_7, player_7: player_8, player_8: "", player_count: i) %>
-      <% else if player10.blank? then %>
-        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player2, player_1: player2, player_2: player3, player_3: player4, player_4: player5, player_5: player6, player_6: player_7, player_7: player_8, player_8: player_9, player_9: "", player_count: i) %>
+      <% elsif player8.blank? %>
+      <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player2, player_1: player2, player_2: player3, player_3: player4, player_4: player5, player_5: player6, player_6: player7, player_7: "", player_count: i) %>
+      <% elsif player9.blank? %>
+      <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player2, player_1: player2, player_2: player3, player_3: player4, player_4: player5, player_5: player6, player_6: player7, player_7: player8, player_8: "", player_count: i) %>
+      <% elsif player10.blank? %>
+      <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player2, player_1: player2, player_2: player3, player_3: player4, player_4: player5, player_5: player6, player_6: player7, player_7: player8, player_8: player9, player_9: "", player_count: i) %>
       <% else %>
-        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player2, player_1: player2, player_2: player3, player_3: player4, player_4: player5, player_5: player6, player_6: player_7, player_7: player_8, player_8: player_9, player_9: player_10, player_10: "", player_count: i) %>
+      <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player2, player_1: player2, player_2: player3, player_3: player4, player_4: player5, player_5: player6, player_6: player7, player_7: player8, player_8: player9, player_9: player10, player_10: "", player_count: i) %>
       <% end %>
 
     <% when 2 %>
@@ -48,7 +56,36 @@
       <% player8 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_8).last %>
       <% player9 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_9).last %>
       <% player10 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_10).last %>
-      <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_2: player3, player_3: player4, player_4: player5, player_5: player6, player_6: player_7, player_7: player_8, player_8: player_9, player_9: player_10, player_10: "", player_count: i) %>
+
+
+      <% if player3.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_2: "", player_count: i) %>
+      <% elsif player4.blank? %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_2: player3, player_3: "", player_count: i) %>
+        <% @notice = "you have left the game!" %>
+      <% elsif player5.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_2: player3, player_3: player4, player_4: "", player_count: i) %>
+      <% elsif player6.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_2: player3, player_3: player4, player_4: player5, player_5: "", player_count: i) %>
+      <% elsif player7.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_2: player3, player_3: player4, player_4: player5, player_5: player6, player_6: "", player_count: i) %>
+      <% elsif player8.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_2: player3, player_3: player4, player_4: player5, player_5: player6, player_6: player7, player_7: "", player_count: i) %>
+      <% elsif player9.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_2: player3, player_3: player4, player_4: player5, player_5: player6, player_6: player7, player_7: player8, player_8: "", player_count: i) %>
+      <% elsif player10.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_2: player3, player_3: player4, player_4: player5, player_5: player6, player_6: player7, player_7: player8, player_8: player9, player_9: "", player_count: i) %>
+      <% else %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_2: player3, player_3: player4, player_4: player5, player_5: player6, player_6: player7, player_7: player8, player_8: player9, player_9: player10, player_10: "", player_count: i) %>
+      <% end %>
     <% when 3 %>
       <% player1 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_1).last %>
       <% player4 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_4).last %>
@@ -58,7 +95,32 @@
       <% player8 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_8).last %>
       <% player9 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_9).last %>
       <% player10 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_10).last %>
-      <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_3: player4, player_4: player5, player_5: player6, player_6: player_7, player_7: player_8, player_8: player_9, player_9: player_10, player_10: "", player_count: i) %>
+
+      <% if player4.blank? %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_3: "", player_count: i) %>
+        <% @notice = "you have left the game!" %>
+      <% elsif player5.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_3: player4, player_4: "", player_count: i) %>
+      <% elsif player6.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_3: player4, player_4: player5, player_5: "", player_count: i) %>
+      <% elsif player7.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_3: player4, player_4: player5, player_5: player6, player_6: "", player_count: i) %>
+      <% elsif player8.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_3: player4, player_4: player5, player_5: player6, player_6: player7, player_7: "", player_count: i) %>
+      <% elsif player9.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, pplayer_3: player4, player_4: player5, player_5: player6, player_6: player7, player_7: player8, player_8: "", player_count: i) %>
+      <% elsif player10.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_3: player4, player_4: player5, player_5: player6, player_6: player7, player_7: player8, player_8: player9, player_9: "", player_count: i) %>
+      <% else %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_3: player4, player_4: player5, player_5: player6, player_6: player7, player_7: player8, player_8: player9, player_9: player10, player_10: "", player_count: i) %>
+      <% end %>
     <% when 4 %>
       <% player1 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_1).last %>
       <% player5 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_5).last %>
@@ -67,7 +129,29 @@
       <% player8 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_8).last %>
       <% player9 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_9).last %>
       <% player10 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_10).last %>
-      <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_4: player5, player_5: player6, player_6: player_7, player_7: player_8, player_8: player_9, player_9: player_10, player_10: "", player_count: i) %>
+
+      <% if player5.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_4: "", player_count: i) %>
+      <% elsif player6.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_4: player5, player_5: "", player_count: i) %>
+      <% elsif player7.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_4: player5, player_5: player6, player_6: "", player_count: i) %>
+      <% elsif player8.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_4: player5, player_5: player6, player_6: player7, player_7: "", player_count: i) %>
+      <% elsif player9.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_4: player5, player_5: player6, player_6: player7, player_7: player8, player_8: "", player_count: i) %>
+      <% elsif player10.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_4: player5, player_5: player6, player_6: player7, player_7: player8, player_8: player9, player_9: "", player_count: i) %>
+      <% else %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_4: player5, player_5: player6, player_6: player7, player_7: player8, player_8: player9, player_9: player10, player_10: "", player_count: i) %>
+      <% end %>
     <% when 5 %>
       <% player1 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_1).last %>
       <% player6 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_6).last %>
@@ -75,29 +159,95 @@
       <% player8 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_8).last %>
       <% player9 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_9).last %>
       <% player10 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_10).last %>
-      <% Round.where(id: params[:round], game_id: params[:game]).update(ealer_id: player1, player_5: player6, player_6: player_7, player_7: player_8, player_8: player_9, player_9: player_10, player_10: "", player_count: i) %>
+
+      <% if player6.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_5: "", player_count: i) %>
+      <% elsif player7.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_5: player6, player_6: "", player_count: i) %>
+      <% elsif player8.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_5: player6, player_6: player7, player_7: "", player_count: i) %>
+      <% elsif player9.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_5: player6, player_6: player7, player_7: player8, player_8: "", player_count: i) %>
+      <% elsif player10.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_5: player6, player_6: player7, player_7: player8, player_8: player9, player_9: "", player_count: i) %>
+      <% else %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_5: player6, player_6: player7, player_7: player8, player_8: player9, player_9: player10, player_10: "", player_count: i) %>
+      <% end %>
     <% when 6 %>
       <% player1 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_1).last %>
       <% player7 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_7).last %>
       <% player8 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_8).last %>
       <% player9 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_9).last %>
       <% player10 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_10).last %>
-      <% Round.where(id: params[:round], game_id: params[:game]).update(pealer_id: player1, player_6: player_7, player_7: player_8, player_8: player_9, player_9: player_10, player_10: "", player_count: i) %>
+
+      <% if player7.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_6: "", player_count: i) %>
+      <% elsif player8.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_6: player7, player_7: "", player_count: i) %>
+      <% elsif player9.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_6: player7, player_7: player8, player_8: "", player_count: i) %>
+      <% elsif player10.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_6: player7, player_7: player8, player_8: player9, player_9: "", player_count: i) %>
+      <% else %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_6: player7, player_7: player8, player_8: player9, player_9: player10, player_10: "", player_count: i) %>
+      <% end %>
     <% when 7 %>
       <% player1 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_1).last %>
       <% player8 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_8).last %>
       <% player9 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_9).last %>
       <% player10 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_10).last %>
-      <% Round.where(id: params[:round], game_id: params[:game]).update(ealer_id: player1, player_7: player_8, player_8: player_9, player_9: player_10, player_10: "", player_count: i) %>
+
+      <% if player8.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_7: "", player_count: i) %>
+      <% elsif player9.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_7: player8, player_8: "", player_count: i) %>
+      <% elsif player10.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_7: player8, player_8: player9, player_9: "", player_count: i) %>
+      <% else %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_7: player8, player_8: player9, player_9: player10, player_10: "", player_count: i) %>
+      <% end %>
     <% when 8 %>
       <% player1 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_1).last %>
       <% player9 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_9).last %>
       <% player10 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_10).last %>
-      <% Round.where(id: params[:round], game_id: params[:game]).update(ealer_id: player1, player_8: player_9, player_9: player_10, player_10: "", player_count: i) %>
+
+      <% if player9.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_8: "", player_count: i) %>
+      <% elsif player10.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_8: player9, player_9: "", player_count: i) %>
+      <% else %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_8: player9, player_9: player10, player_10: "", player_count: i) %>
+      <% end %>
+
     <% when 9 %>
       <% player1 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_1).last %>
       <% player10 = Round.where(id: params[:round], game_id: params[:game]).pluck(:player_10).last %>
-      <% Round.where(id: params[:round], game_id: params[:game]).update(ealer_id: player1, player_9: player_10, player_10: "", player_count: i) %>
+
+      <% if player10.blank? %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_9: "", player_count: i) %>
+      <% else %>
+        <% @notice = "you have left the game!" %>
+        <% Round.where(id: params[:round], game_id: params[:game]).update(dealer_id: player1, player_9: player10, player_10: "", player_count: i) %>
+      <% end %>
     <% when 10 %>
       <% Round.where(id: params[:round], game_id: params[:game]).update(ealer_id: player1, player_10: "", player_count: i) %>
   <% end %>
@@ -108,4 +258,4 @@ that player has been removed have been removed to the game.
 
   <%= link_to "click here to return to the list of open games", games_path %>
 
-  <% controller.redirect_back(fallback_location: root_path) %>
+  <% controller.redirect_back(fallback_location: root_path, notice: @notice) %>
