@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /games
   # GET /games.json
@@ -24,16 +25,23 @@ class GamesController < ApplicationController
   # POST /games
   # POST /games.json
   def create
+
     @game = Game.new(game_params)
 
     respond_to do |format|
-      if @game.save
-        format.html { redirect_to @game, notice: 'Game was successfully created.' }
-        format.json { render :show, status: :created, location: @game }
-      else
+      begin
+        if @game.save
+          format.html { redirect_to @game, notice: 'Game was successfully created.' }
+          format.json { render :show, status: :created, location: @game }
+        else
+          format.html { render :new }
+          format.json { render json: @game.errors, status: :unprocessable_entity }
+        end
+      rescue PG::UniqueViolation
         format.html { render :new }
-        format.json { render json: @game.errors, status: :unprocessable_entity }
+        format.json { render json: ["game name taken"], status: :unprocessable_entity }
       end
+
     end
   end
 
@@ -41,6 +49,7 @@ class GamesController < ApplicationController
   # PATCH/PUT /games/1.json
   def update
     respond_to do |format|
+
       if @game.update(game_params)
         format.html { redirect_to @game, notice: 'Game was successfully updated.' }
         format.json { render :show, status: :ok, location: @game }
