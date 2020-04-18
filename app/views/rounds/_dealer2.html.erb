@@ -28,28 +28,30 @@
               </div>
             </div>
             <div>
-            <% case card %>
-            <% when card1 %>
-              <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player1, :card => card) %>
-            <% when card2 %>
-              <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player2, :card => card) %>
-            <% when card3 %>
-              <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player3, :card => card) %>
-            <% when card4 %>
-              <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player4, :card => card) %>
-            <% when card5 %>
-              <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player5, :card => card) %>
-            <% when card6 %>
-              <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player6, :card => card) %>
-            <% when card7 %>
-              <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player7, :card => card) %>
-            <% when card8 %>
-              <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player8, :card => card) %>
-            <% when card9 %>
-              <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player9, :card => card) %>
-            <% when card10 %>
-              <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player10, :card => card) %>
-            <% end %>
+
+                <% case card %>
+                <% when card1 %>
+                  <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player1, :card => card) %>
+                <% when card2 %>
+                  <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player2, :card => card) %>
+                <% when card3 %>
+                  <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player3, :card => card) %>
+                <% when card4 %>
+                  <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player4, :card => card) %>
+                <% when card5 %>
+                  <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player5, :card => card) %>
+                <% when card6 %>
+                  <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player6, :card => card) %>
+                <% when card7 %>
+                  <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player7, :card => card) %>
+                <% when card8 %>
+                  <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player8, :card => card) %>
+                <% when card9 %>
+                  <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player9, :card => card) %>
+                <% when card10 %>
+                  <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player10, :card => card) %>
+                <% end %>
+
             </div>
         </div>
         <% x = x + 1 %>
