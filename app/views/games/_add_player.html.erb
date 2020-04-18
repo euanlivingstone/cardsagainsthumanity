@@ -34,4 +34,4 @@
 you have been added to the game.
 
   <%= link_to "back", games_path %>
-<% controller.redirect_to games_path %>
+<% controller.redirect_back(fallback_location: games_path, notice: "you have joined the game") %>

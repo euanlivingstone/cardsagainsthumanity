@@ -1,0 +1,61 @@
+
+<% card1 = @round.player_1_card_1 %>    <% player1 = @round.player_1 %>
+<% card2 = @round.player_2_card_1 %>    <% player2 = @round.player_2 %>
+<% card3 = @round.player_3_card_1 %>    <% player3 = @round.player_3 %>
+<% card4 = @round.player_4_card_1 %>    <% player4 = @round.player_4 %>
+<% card5 = @round.player_5_card_1 %>    <% player5 = @round.player_5 %>
+<% card6 = @round.player_6_card_1 %>    <% player6 = @round.player_6 %>
+<% card7 = @round.player_7_card_1 %>    <% player7 = @round.player_7 %>
+<% card8 = @round.player_8_card_1 %>    <% player8 = @round.player_8 %>
+<% card9 = @round.player_9_card_1 %>    <% player9 = @round.player_9 %>
+<% card10 = @round.player_10_card_1 %>    <% player10 = @round.player_10 %>
+<%  @arraycards = Round.where(id: @round.id).pluck(:player_1_card_1, :player_2_card_1, :player_3_card_1, :player_4_card_1, :player_5_card_1, :player_6_card_1, :player_7_card_1, :player_8_card_1, :player_9_card_1, :player_10_card_1).last %>
+
+<% @arraycards = @arraycards.to_a.sample(10) %>
+<% x = 0 %>
+<% z = 0 %>
+<% while z < 11 %>
+
+<% card = @arraycards[z] %>
+<% if !card.blank? %>
+        <div class="container">
+            <div class="container WhiteCard">
+              <br>
+              <%= WhiteCard.where(id: card).pluck(:text).first %>
+              <br>
+              <div>
+                <%= image_tag'logo_w.PNG', :style => "position: absolute; bottom: 5px; width: 150px;"%>
+              </div>
+            </div>
+            <div>
+            <% case card %>
+            <% when card1 %>
+              <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player1, :card => card) %>
+            <% when card2 %>
+              <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player2, :card => card) %>
+            <% when card3 %>
+              <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player3, :card => card) %>
+            <% when card4 %>
+              <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player4, :card => card) %>
+            <% when card5 %>
+              <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player5, :card => card) %>
+            <% when card6 %>
+              <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player6, :card => card) %>
+            <% when card7 %>
+              <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player7, :card => card) %>
+            <% when card8 %>
+              <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player8, :card => card) %>
+            <% when card9 %>
+              <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player9, :card => card) %>
+            <% when card10 %>
+              <%= link_to "Select this one", winner_path(:game => @round.game_id, :round => @round.id, :player => player10, :card => card) %>
+            <% end %>
+            </div>
+        </div>
+        <% x = x + 1 %>
+<% end %>
+
+  <% z = z + 1 %>
+<% end %>
+
+<%= x = (@round.player_count - x) - 1 %> player left to play a card.

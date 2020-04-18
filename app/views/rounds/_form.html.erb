@@ -1,7 +1,7 @@
 
 <% case current_user.id %>
   <% when @round.dealer_id %>
-    <%= render "rounds/dealer", round: @round %>
+    <%= render "rounds/dealer2", round: @round %>
   <% when @round.player_1 %>
   <% if @round.player_1_card_1.blank? then %>
     <%= render "rounds/player_1" , round: @round %>
