@@ -9,3 +9,4 @@ Cards Against Humanity online clone.
 * PostgreSQL: 12.2
 
 
+https://onlineagainsthumanity.herokuapp.com
