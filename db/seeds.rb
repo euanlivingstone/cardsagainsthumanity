@@ -310,7 +310,7 @@ WhiteCard.create([
   {text: "The pleasure of watching my boys wolf down my pot roast and scamper into the woods."},
   {text: "The rock after which Dwayne Johnson was named."},
   {text: "The South rising again."},
-  {text: "The wonderful giant spoon known as "ladle.""},
+  {text: "The wonderful giant spoon known as 'ladle.'"},
   {text: "The world's largest baby, weighing over 700 pounds."},
   {text: "The worm that ate my penis and is now my penis."},
   {text: "These breasts of mine."},
