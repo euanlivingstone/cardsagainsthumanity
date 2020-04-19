@@ -9,8 +9,15 @@
 <% card9 = @round.player_9_card_1 %>    <% player9 = @round.player_9 %>
 <% card10 = @round.player_10_card_1 %>    <% player10 = @round.player_10 %>
 <%  @arraycards = Round.where(id: @round.id).pluck(:player_1_card_1, :player_2_card_1, :player_3_card_1, :player_4_card_1, :player_5_card_1, :player_6_card_1, :player_7_card_1, :player_8_card_1, :player_9_card_1, :player_10_card_1).last %>
-
+<p></p>
 <% @arraycards = @arraycards.to_a.sample(10) %>
+<% @arraycards = @arraycards.compact %>
+<p>
+<%= @arraycards.count %>   player have chosen their card.
+<% y = @arraycards.count + 1 %>
+</p><p>
+<%= x = (@round.player_count - y) %> player left to play a card.
+</p>
 <% x = 0 %>
 <% z = 0 %>
 <% while z < 11 %>
@@ -33,5 +40,3 @@
 
   <% z = z + 1 %>
 <% end %>
-
-<%= x = (@round.player_count - x) - 1 %> player left to play a card.
