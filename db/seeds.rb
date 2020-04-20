@@ -2141,10 +2141,7 @@ WhiteCard.create([
   {text: "Yummy yummy yummy yummy rat pussy."}
 ])
 
-User.create([
-  {email: 'test1@test.com', password: 'test1234', password_confirmation: 'test1234', created_at: '2020-04-10 20:59:51.768682', updated_at: '2020-04-10 20:59:51.768682'},
-  {email: 'test2@test.com', password: '1234test', password_confirmation: '1234test', created_at: '2020-04-10 20:59:51.768682', updated_at: '2020-04-10 20:59:51.768682'}
-])
+
 
 BlackCard.create([
   {text: "Introducing X-treme Baseball! It’s like baseball, but with __________!", pick_amount: "1"},
